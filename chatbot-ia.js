@@ -18,7 +18,7 @@ const CHATBOT_CONFIG = {
     temperature: 0.7,
     
     // === PERSONALIZACIÓN ===
-    partnerName: 'Tu Nombre', // Pon tu nombre real
+    partnerName: 'Kepa Bilbao', // Pon tu nombre real
     whatsappNumber: '34611918310', // Tu número sin + ni espacios
     whatsappMessage: 'Hola! Me interesa el ahorro en oro', // Mensaje predeterminado
     

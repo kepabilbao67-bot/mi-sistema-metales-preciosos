@@ -53,11 +53,11 @@ const APP_CONFIG = {
     
     // Tu info de contacto (para el chatbot y formularios)
     partner: {
-        name: 'TU NOMBRE AQUÍ',
+        name: 'Kepa Bilbao',
         whatsapp: '34611918310',
-        email: 'tu@email.com',
-        instagram: '@tuusuario',
-        linkedin: 'tu-perfil-linkedin',
+        email: 'kepabilbao67@gmail.com',
+        instagram: '@kepabilbao',
+        linkedin: 'kepabilbao',
     },
     
     // Configuración del chatbot IA
