@@ -81,7 +81,7 @@
         document.getElementById('lead-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const data = Object.fromEntries(new FormData(this));
-            this.innerHTML = '<div style="text-align:center;padding:30px;"><div style="font-size:3rem;margin-bottom:15px;">🎉</div><h3 style="color:#D4AF37;margin-bottom:10px;">¡Guía enviada!</h3><p style="color:rgba(255,255,255,0.7);font-size:0.85rem;">Revisa tu email (también la carpeta de spam).</p><p style="margin-top:15px;"><a href="https://wa.me/34TUNUMERO?text=Hola!+Acabo+de+descargar+la+guía+del+oro" style="background:#25D366;color:white;padding:10px 20px;border-radius:20px;font-weight:700;font-size:0.85rem;display:inline-block;">También puedo contarte por WhatsApp 📱</a></p></div>';
+            this.innerHTML = '<div style="text-align:center;padding:30px;"><div style="font-size:3rem;margin-bottom:15px;">🎉</div><h3 style="color:#D4AF37;margin-bottom:10px;">¡Guía enviada!</h3><p style="color:rgba(255,255,255,0.7);font-size:0.85rem;">Revisa tu email (también la carpeta de spam).</p><p style="margin-top:15px;"><a href="https://wa.me/34611918310?text=Hola!+Acabo+de+descargar+la+guía+del+oro" style="background:#25D366;color:white;padding:10px 20px;border-radius:20px;font-weight:700;font-size:0.85rem;display:inline-block;">También puedo contarte por WhatsApp 📱</a></p></div>';
             console.log('Lead magnet:', data);
             // Aquí conectar con Mailerlite/Brevo para enviar la guía por email
         });

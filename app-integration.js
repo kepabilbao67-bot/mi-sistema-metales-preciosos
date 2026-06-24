@@ -54,7 +54,7 @@ const APP_CONFIG = {
     // Tu info de contacto (para el chatbot y formularios)
     partner: {
         name: 'TU NOMBRE AQUÍ',
-        whatsapp: '34TUNUMERO',
+        whatsapp: '34611918310',
         email: 'tu@email.com',
         instagram: '@tuusuario',
         linkedin: 'tu-perfil-linkedin',

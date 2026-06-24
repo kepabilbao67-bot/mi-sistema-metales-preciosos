@@ -19,7 +19,7 @@ const CHATBOT_CONFIG = {
     
     // === PERSONALIZACIÓN ===
     partnerName: 'Tu Nombre', // Pon tu nombre real
-    whatsappNumber: '34600000000', // Tu número sin + ni espacios
+    whatsappNumber: '34611918310', // Tu número sin + ni espacios
     whatsappMessage: 'Hola! Me interesa el ahorro en oro', // Mensaje predeterminado
     
     // === SISTEMA PROMPT (el "cerebro" de tu IA) ===
