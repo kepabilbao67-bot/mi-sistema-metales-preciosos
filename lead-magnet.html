@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Gratuita: Protege tu Dinero de la Inflación</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif; background:linear-gradient(135deg,#1a1a2e,#16213e); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px; }
+        .container { max-width:900px; width:100%; display:grid; grid-template-columns:1fr 1fr; background:white; border-radius:20px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,0.3); }
+        .left { padding:50px 40px; display:flex; flex-direction:column; justify-content:center; }
+        .right { background:linear-gradient(135deg,#1a1a2e,#0f3460); padding:50px 40px; display:flex; flex-direction:column; justify-content:center; color:white; }
+        .badge { display:inline-block; background:rgba(212,175,55,0.1); border:1px solid rgba(212,175,55,0.3); color:#D4AF37; padding:6px 14px; border-radius:20px; font-size:0.75rem; font-weight:700; margin-bottom:20px; }
+        h1 { font-size:1.8rem; font-weight:900; line-height:1.2; margin-bottom:15px; color:#1a1a2e; }
+        .gold { color:#D4AF37; }
+        .subtitle { color:#6c757d; font-size:0.95rem; margin-bottom:25px; line-height:1.6; }
+        .checklist { margin-bottom:25px; }
+        .checklist li { padding:8px 0; font-size:0.9rem; color:#333; display:flex; align-items:center; gap:10px; }
+        .checklist li::before { content:'✅'; }
+        .form-group { margin-bottom:12px; }
+        .form-group label { display:block; font-weight:600; font-size:0.8rem; margin-bottom:4px; color:rgba(255,255,255,0.8); }
+        .form-group input { width:100%; padding:12px 15px; border:2px solid rgba(255,255,255,0.2); border-radius:8px; background:rgba(255,255,255,0.05); color:white; font-size:0.9rem; font-family:inherit; }
+        .form-group input::placeholder { color:rgba(255,255,255,0.4); }
+        .form-group input:focus { border-color:#D4AF37; outline:none; }
+        .btn-download { width:100%; padding:14px; background:linear-gradient(135deg,#D4AF37,#996515); color:#1a1a2e; border:none; border-radius:25px; font-size:1rem; font-weight:800; cursor:pointer; margin-top:10px; transition:transform 0.3s,box-shadow 0.3s; }
+        .btn-download:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(212,175,55,0.4); }
+        .privacy { text-align:center; font-size:0.7rem; color:rgba(255,255,255,0.4); margin-top:12px; }
+        .right h2 { font-size:1.2rem; font-weight:700; margin-bottom:20px; color:#D4AF37; }
+        .right p { font-size:0.85rem; color:rgba(255,255,255,0.7); margin-bottom:10px; }
+        .stat-row { display:flex; gap:15px; margin:20px 0; }
+        .mini-stat { background:rgba(212,175,55,0.1); border:1px solid rgba(212,175,55,0.2); border-radius:10px; padding:15px; text-align:center; flex:1; }
+        .mini-stat .num { font-size:1.3rem; font-weight:900; color:#D4AF37; }
+        .mini-stat .lab { font-size:0.65rem; color:rgba(255,255,255,0.5); margin-top:4px; }
+        @media(max-width:768px) { .container { grid-template-columns:1fr; } .left,.right { padding:30px 25px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <span class="badge">📘 GUÍA GRATUITA</span>
+            <h1>Cómo Proteger tu Dinero de la <span class="gold">Inflación</span> con Oro Físico</h1>
+            <p class="subtitle">Descubre el método que usan +200.000 inversores en 134 países para proteger su patrimonio mientras el banco les roba poder adquisitivo cada día.</p>
+            <ul class="checklist">
+                <li>Por qué tu dinero en el banco pierde valor (con datos)</li>
+                <li>Cómo funciona el ahorro en oro físico paso a paso</li>
+                <li>Cuánto necesitas para empezar (spoiler: 25€)</li>
+                <li>Comparativa real: banco vs oro en los últimos 5 años</li>
+                <li>Las 5 preguntas que debes hacerte antes de invertir</li>
+                <li>Calculadora: cuánto podrías tener en 5/10/20 años</li>
+            </ul>
+        </div>
+        <div class="right">
+            <h2>Descarga GRATIS tu guía</h2>
+            <p>Déjame tus datos y te la envío al instante al email:</p>
+            <form id="lead-form">
+                <div class="form-group">
+                    <label>Tu nombre</label>
+                    <input type="text" name="name" placeholder="Ej: María García" required>
+                </div>
+                <div class="form-group">
+                    <label>Tu email</label>
+                    <input type="email" name="email" placeholder="tu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Tu WhatsApp (opcional)</label>
+                    <input type="tel" name="phone" placeholder="+34 600 000 000">
+                </div>
+                <button type="submit" class="btn-download">Descargar Guía Gratis 📘</button>
+                <p class="privacy">🔒 Sin spam. Puedes darte de baja en cualquier momento.</p>
+            </form>
+            <div class="stat-row">
+                <div class="mini-stat"><div class="num">+144%</div><div class="lab">Oro en 5 años</div></div>
+                <div class="mini-stat"><div class="num">-25%</div><div class="lab">Tu banco (inflación)</div></div>
+                <div class="mini-stat"><div class="num">25€</div><div class="lab">Para empezar</div></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('lead-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const data = Object.fromEntries(new FormData(this));
+            this.innerHTML = '<div style="text-align:center;padding:30px;"><div style="font-size:3rem;margin-bottom:15px;">🎉</div><h3 style="color:#D4AF37;margin-bottom:10px;">¡Guía enviada!</h3><p style="color:rgba(255,255,255,0.7);font-size:0.85rem;">Revisa tu email (también la carpeta de spam).</p><p style="margin-top:15px;"><a href="https://wa.me/34TUNUMERO?text=Hola!+Acabo+de+descargar+la+guía+del+oro" style="background:#25D366;color:white;padding:10px 20px;border-radius:20px;font-weight:700;font-size:0.85rem;display:inline-block;">También puedo contarte por WhatsApp 📱</a></p></div>';
+            console.log('Lead magnet:', data);
+            // Aquí conectar con Mailerlite/Brevo para enviar la guía por email
+        });
+    </script>
+</body>
+</html>
