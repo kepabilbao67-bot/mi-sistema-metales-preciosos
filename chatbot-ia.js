@@ -320,10 +320,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========== FORM ==========
     document.getElementById('contact-form').addEventListener('submit', (e) => {
         e.preventDefault();
-        const formData = new FormData(e.target);
+        const form = e.target;
+        const formData = new FormData(form);
         const data = Object.fromEntries(formData);
-        
-        e.target.innerHTML = `
+
+        // Enviar el lead a Netlify Forms (llega al panel de Netlify + email)
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        }).catch((err) => console.error('Error al enviar el formulario:', err));
+
+        form.innerHTML = `
             <div style="text-align:center; padding:40px;">
                 <div style="font-size:4rem; margin-bottom:20px;">✅</div>
                 <h3 style="margin-bottom:10px;">¡Solicitud enviada!</h3>
@@ -331,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p style="margin-top:15px;"><a href="https://wa.me/${CHATBOT_CONFIG.whatsappNumber}?text=${encodeURIComponent(CHATBOT_CONFIG.whatsappMessage)}" style="background:#25D366;color:white;padding:12px 25px;border-radius:25px;font-weight:700;display:inline-block;">O escríbeme por WhatsApp ahora 📱</a></p>
             </div>
         `;
-        console.log('Lead capturado:', data);
+        console.log('Lead capturado y enviado a Netlify:', data);
     });
 
     // ========== SMOOTH SCROLL ==========
