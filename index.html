@@ -182,17 +182,26 @@
     14. CHATBOT IA - Asistente flotante
     ============================================== -->
 
-    <!-- TICKER PRECIO ORO EN VIVO -->
-    <div class="gold-ticker">
-        <div class="ticker-content">
-            <span class="ticker-item">🥇 ORO: <span class="price">116,49€/g</span> <span class="change-up">▲ +0,23%</span></span>
-            <span class="ticker-item">🥈 PLATA: <span class="price">1,82€/g</span> <span class="change-down">▼ -0,8%</span></span>
-            <span class="ticker-item">⬜ PLATINO: <span class="price">29,4€/g</span> <span class="change-up">▲ +0,5%</span></span>
-            <span class="ticker-item">🔲 PALADIO: <span class="price">27,1€/g</span> <span class="change-up">▲ +1,2%</span></span>
-            <span class="ticker-item">📊 RATIO ORO/PLATA: <span class="price">66.2</span></span>
-            <span class="ticker-item">🥇 ORO: <span class="price">116,49€/g</span> <span class="change-up">▲ +0,23%</span></span>
-            <span class="ticker-item">🥈 PLATA: <span class="price">1,82€/g</span> <span class="change-down">▼ -0,8%</span></span>
-            <span class="ticker-item">⬜ PLATINO: <span class="price">29,4€/g</span> <span class="change-up">▲ +0,5%</span></span>
+    <!-- TICKER PRECIOS METALES EN VIVO (TradingView - datos reales) -->
+    <div class="gold-ticker-live">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {
+                "symbols": [
+                    { "description": "🥇 Oro (EUR)", "proName": "OANDA:XAUEUR" },
+                    { "description": "🥈 Plata (EUR)", "proName": "OANDA:XAGEUR" },
+                    { "description": "⬜ Platino", "proName": "OANDA:XPTUSD" },
+                    { "description": "🔲 Paladio", "proName": "OANDA:XPDUSD" },
+                    { "description": "🥇 Oro (USD)", "proName": "TVC:GOLD" }
+                ],
+                "showSymbolLogo": false,
+                "isTransparent": true,
+                "displayMode": "adaptive",
+                "colorTheme": "dark",
+                "locale": "es"
+            }
+            </script>
         </div>
     </div>
 
@@ -201,6 +210,7 @@
         <div class="container">
             <div class="logo">🥇 Kepa Bilbao — Oro Físico</div>
             <nav class="nav">
+                <a href="#precios-vivo">Precios en Vivo</a>
                 <a href="#como-funciona">Cómo Funciona</a>
                 <a href="#ventajas">Ventajas</a>
                 <a href="#planes">Planes</a>
@@ -320,6 +330,80 @@
                 </div>
                 <p class="disclaimer">*Rendimiento pasado no garantiza resultados futuros. El oro es un activo de largo plazo.</p>
             </div>
+        </div>
+    </section>
+
+    <!-- PRECIOS EN VIVO (Gráficos reales TradingView) -->
+    <section class="live-prices" id="precios-vivo">
+        <div class="container">
+            <h2>Precios del Oro, Plata y Platino <span class="gold-text">en Vivo</span></h2>
+            <p class="section-subtitle">Cotizaciones reales del mercado mundial, actualizadas en tiempo real</p>
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <div class="chart-card-head">🥇 Oro (EUR)</div>
+                    <div class="chart-embed">
+                        <div class="tradingview-widget-container">
+                            <div class="tradingview-widget-container__widget"></div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                            {
+                                "symbol": "OANDA:XAUEUR",
+                                "width": "100%",
+                                "height": "100%",
+                                "locale": "es",
+                                "dateRange": "12M",
+                                "colorTheme": "dark",
+                                "isTransparent": true,
+                                "autosize": true,
+                                "chartOnly": false
+                            }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-card-head">🥈 Plata (EUR)</div>
+                    <div class="chart-embed">
+                        <div class="tradingview-widget-container">
+                            <div class="tradingview-widget-container__widget"></div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                            {
+                                "symbol": "OANDA:XAGEUR",
+                                "width": "100%",
+                                "height": "100%",
+                                "locale": "es",
+                                "dateRange": "12M",
+                                "colorTheme": "dark",
+                                "isTransparent": true,
+                                "autosize": true,
+                                "chartOnly": false
+                            }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-card-head">⬜ Platino (USD)</div>
+                    <div class="chart-embed">
+                        <div class="tradingview-widget-container">
+                            <div class="tradingview-widget-container__widget"></div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                            {
+                                "symbol": "OANDA:XPTUSD",
+                                "width": "100%",
+                                "height": "100%",
+                                "locale": "es",
+                                "dateRange": "12M",
+                                "colorTheme": "dark",
+                                "isTransparent": true,
+                                "autosize": true,
+                                "chartOnly": false
+                            }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="charts-note">📊 Datos de mercado en tiempo real vía TradingView. El oro y la plata se muestran en euros (EUR); el platino en dólares (USD).</p>
         </div>
     </section>
 

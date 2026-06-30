@@ -1541,3 +1541,175 @@ ul {
     .vs-cell { padding: 10px 15px; border-bottom: 1px solid var(--gray-100); }
     .vs-cell::before { font-weight: 700; margin-right: 5px; }
 }
+
+
+
+/* ========================================================
+   MEJORAS v4 — Precios en vivo + diseño más moderno
+======================================================== */
+
+/* Render de fuentes más suave y moderno */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.01em;
+}
+
+/* ---- Ticker en vivo (TradingView) ---- */
+.gold-ticker-live {
+    background: #0b0b16;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    min-height: 46px;
+}
+.gold-ticker-live .tradingview-widget-container {
+    width: 100%;
+}
+
+/* ---- Sección Precios en Vivo ---- */
+.live-prices {
+    padding: 90px 0;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(212,175,55,0.10) 0%, transparent 45%),
+        linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 60%, var(--dark-3) 100%);
+}
+.live-prices h2 {
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.live-prices .section-subtitle {
+    color: rgba(255, 255, 255, 0.6);
+}
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+.chart-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    border-radius: 18px;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.chart-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+    border-color: var(--gold);
+}
+.chart-card-head {
+    padding: 15px 20px;
+    font-weight: 700;
+    color: #fff;
+    font-size: 0.98rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+}
+.chart-embed {
+    height: 230px;
+    padding: 6px;
+}
+.chart-embed .tradingview-widget-container,
+.chart-embed .tradingview-widget-container__widget {
+    height: 100% !important;
+    width: 100% !important;
+}
+.charts-note {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.78rem;
+    margin-top: 28px;
+}
+
+/* ---- Toques modernos en tarjetas existentes ---- */
+.advantage-card,
+.step,
+.sec-item,
+.plan-card,
+.testimonial-card,
+.calc-container,
+.contact-form,
+.contact-card,
+.guarantee-box {
+    border-radius: 18px;
+}
+.advantage-card,
+.sec-item {
+    border: 1px solid var(--gray-200);
+}
+.advantage-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 18px 40px rgba(212, 175, 55, 0.12);
+}
+
+/* Acento degradado bajo los títulos de sección (más profesional) */
+.how-it-works h2,
+.advantages h2,
+.plans h2,
+.calculator h2,
+.security h2,
+.faq h2,
+.contact h2,
+.performance h2,
+.live-prices h2,
+.testimonials h2 {
+    position: relative;
+    padding-bottom: 18px;
+}
+.how-it-works h2::after,
+.advantages h2::after,
+.plans h2::after,
+.calculator h2::after,
+.security h2::after,
+.faq h2::after,
+.contact h2::after,
+.performance h2::after,
+.live-prices h2::after,
+.testimonials h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 64px;
+    height: 4px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light));
+}
+
+/* Botones con micro-animación más pulida */
+.btn-primary,
+.btn-submit,
+.btn-header,
+.btn-plan-primary {
+    position: relative;
+    overflow: hidden;
+}
+.btn-primary::after,
+.btn-submit::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.6s ease;
+}
+.btn-primary:hover::after,
+.btn-submit:hover::after {
+    left: 130%;
+}
+
+/* Responsive para los gráficos */
+@media (max-width: 1024px) {
+    .charts-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+    .charts-grid { grid-template-columns: 1fr; }
+    .live-prices { padding: 60px 0; }
+}
