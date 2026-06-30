@@ -324,22 +324,37 @@ document.addEventListener('DOMContentLoaded', function() {
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
 
-        // Enviar el lead a Netlify Forms (llega al panel de Netlify + email)
+        // 1) Guardar el lead en Netlify (panel de Netlify + aviso por email)
         fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams(formData).toString()
         }).catch((err) => console.error('Error al enviar el formulario:', err));
 
+        // 2) Preparar mensaje de WhatsApp con los datos del lead
+        const partes = [
+            '¡Hola Kepa! Acabo de rellenar el formulario de tu web 🥇',
+            'Nombre: ' + (data.name || '-'),
+            'Teléfono: ' + (data.phone || '-'),
+            'Email: ' + (data.email || '-'),
+            'Ahorro mensual: ' + (data.budget || '-')
+        ];
+        if (data.message) partes.push('Mensaje: ' + data.message);
+        const waUrl = 'https://wa.me/' + CHATBOT_CONFIG.whatsappNumber + '?text=' + encodeURIComponent(partes.join('\n'));
+
+        // 3) Abrir WhatsApp para que el lead te llegue también por ahí
+        window.open(waUrl, '_blank');
+
+        // 4) Mensaje de confirmación
         form.innerHTML = `
             <div style="text-align:center; padding:40px;">
                 <div style="font-size:4rem; margin-bottom:20px;">✅</div>
                 <h3 style="margin-bottom:10px;">¡Solicitud enviada!</h3>
                 <p style="color:#6c757d;">Te contacto personalmente en menos de 24 horas.</p>
-                <p style="margin-top:15px;"><a href="https://wa.me/${CHATBOT_CONFIG.whatsappNumber}?text=${encodeURIComponent(CHATBOT_CONFIG.whatsappMessage)}" style="background:#25D366;color:white;padding:12px 25px;border-radius:25px;font-weight:700;display:inline-block;">O escríbeme por WhatsApp ahora 📱</a></p>
+                <p style="margin-top:15px;"><a href="${waUrl}" target="_blank" style="background:#25D366;color:white;padding:12px 25px;border-radius:25px;font-weight:700;display:inline-block;">Enviarme tus datos por WhatsApp 📱</a></p>
             </div>
         `;
-        console.log('Lead capturado y enviado a Netlify:', data);
+        console.log('Lead capturado (Netlify + WhatsApp):', data);
     });
 
     // ========== SMOOTH SCROLL ==========
