@@ -1933,3 +1933,97 @@ body {
     border-radius: 20px;
     border: 1px solid rgba(200, 204, 210, 0.12);
 }
+
+
+
+/* ========================================================
+   v6 — FOTO EN LA PORTADA (hero con foto de Kepa)
+======================================================== */
+.hero-content {
+    text-align: left;
+}
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 50px;
+    align-items: center;
+}
+.hero-text {
+    max-width: 640px;
+}
+/* La portada ya no centra el texto: ajustamos elementos */
+.hero .hero-stats {
+    justify-content: flex-start;
+}
+.hero .hero-cta {
+    justify-content: flex-start;
+}
+.hero-subtitle {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Marco de la foto con borde metálico oro + plata */
+.hero-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    z-index: 3;
+}
+.hero-photo-frame {
+    position: relative;
+    padding: 7px;
+    border-radius: 26px;
+    background: linear-gradient(140deg, var(--gold-light), var(--gold), var(--silver), var(--gold-dark), var(--silver-light));
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45), 0 0 45px rgba(212, 175, 55, 0.25);
+    max-width: 380px;
+    width: 100%;
+    animation: floatPhoto 5s ease-in-out infinite;
+}
+@keyframes floatPhoto {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+.hero-photo-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    background: #0b0b16;
+}
+.hero-photo-tag {
+    background: rgba(11, 11, 22, 0.7);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 8px 18px;
+    border-radius: 25px;
+    backdrop-filter: blur(6px);
+}
+
+@media (max-width: 900px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        text-align: center;
+    }
+    .hero-text {
+        max-width: 100%;
+        order: 2;
+    }
+    .hero-photo {
+        order: 1;
+    }
+    .hero .hero-stats,
+    .hero .hero-cta {
+        justify-content: center;
+    }
+    .hero-photo-frame {
+        max-width: 280px;
+    }
+}
