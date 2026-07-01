@@ -1944,7 +1944,7 @@ body {
 }
 .hero-grid {
     display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
+    grid-template-columns: 1.25fr 0.75fr;
     gap: 50px;
     align-items: center;
 }
@@ -1978,7 +1978,7 @@ body {
     border-radius: 26px;
     background: linear-gradient(140deg, var(--gold-light), var(--gold), var(--silver), var(--gold-dark), var(--silver-light));
     box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45), 0 0 45px rgba(212, 175, 55, 0.25);
-    max-width: 380px;
+    max-width: 290px;
     width: 100%;
     animation: floatPhoto 5s ease-in-out infinite;
 }
@@ -2024,6 +2024,6 @@ body {
         justify-content: center;
     }
     .hero-photo-frame {
-        max-width: 280px;
+        max-width: 230px;
     }
 }
