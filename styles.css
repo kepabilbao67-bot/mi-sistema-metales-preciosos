@@ -2211,3 +2211,18 @@ body {
 @media (max-width: 768px) {
     .vault-banner { height: 120px; }
 }
+
+
+
+/* ========================================================
+   TICKER EN VIVO (TradingView - corre todo el rato sin parar)
+======================================================== */
+.gold-ticker-live {
+    background: #0b0b16;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    min-height: 46px;
+    overflow: hidden;
+}
+.gold-ticker-live .tradingview-widget-container {
+    width: 100%;
+}
