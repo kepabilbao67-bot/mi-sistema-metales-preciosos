@@ -1541,3 +1541,259 @@ ul {
     .vs-cell { padding: 10px 15px; border-bottom: 1px solid var(--gray-100); }
     .vs-cell::before { font-weight: 700; margin-right: 5px; }
 }
+
+
+
+/* ========================================================
+   SECCION UNETE AL EQUIPO (oportunidad de negocio)
+======================================================== */
+.join-team {
+    padding: 90px 0;
+    background: linear-gradient(160deg, #0b0b16 0%, #1a1a2e 40%, #16213e 100%);
+    position: relative;
+    overflow: hidden;
+}
+.join-team::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(212,175,55,0.10) 0%, transparent 70%);
+    border-radius: 50%;
+}
+.team-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.team-badge {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    color: var(--gold);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.join-team h2 {
+    color: #fff;
+    font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+    font-weight: 900;
+    margin-bottom: 16px;
+    line-height: 1.25;
+}
+.team-hook {
+    color: rgba(255,255,255,0.7);
+    font-size: 1.1rem;
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Dos imágenes con overlay de datos */
+.team-images-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 50px;
+}
+.team-img-card {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+.team-img-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+.team-img-card:hover img {
+    transform: scale(1.05);
+}
+.team-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,10,20,0.88) 0%, rgba(10,10,20,0.2) 50%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 28px;
+}
+.team-img-stat {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--gold);
+    margin-bottom: 4px;
+}
+.team-img-label {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+}
+
+.team-content {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 50px;
+    align-items: start;
+}
+.team-hints {
+    margin-bottom: 24px;
+}
+.team-hints li {
+    padding: 8px 0;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.team-hints li:last-child { border-bottom: none; }
+
+/* Datos clave en la sección equipo */
+.team-data-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 24px;
+}
+.team-data-item {
+    background: rgba(212,175,55,0.08);
+    border: 1px solid rgba(212,175,55,0.2);
+    border-radius: 14px;
+    padding: 16px 12px;
+    text-align: center;
+}
+.team-data-num {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--gold);
+    margin-bottom: 3px;
+}
+.team-data-label {
+    display: block;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.team-mystery {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+.team-mystery strong {
+    color: var(--gold);
+}
+
+/* Tarjeta misteriosa */
+.team-card-mystery {
+    background: rgba(255,255,255,0.03);
+    border: 1px dashed rgba(212,175,55,0.35);
+    border-radius: 18px;
+    padding: 28px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+.mystery-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+.team-card-mystery p {
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+.team-card-mystery span {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.8rem;
+}
+
+/* Formulario equipo */
+.team-form {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(212,175,55,0.2);
+    border-radius: 18px;
+    padding: 28px;
+}
+.team-form h4 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    text-align: center;
+}
+.team-form .form-group {
+    margin-bottom: 12px;
+}
+.team-form input,
+.team-form select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+    font-size: 0.9rem;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+.team-form input::placeholder {
+    color: rgba(255,255,255,0.4);
+}
+.team-form select {
+    color: rgba(255,255,255,0.6);
+}
+.team-form select option {
+    background: #1a1a2e;
+    color: #fff;
+}
+.team-form input:focus,
+.team-form select:focus {
+    border-color: var(--gold);
+    outline: none;
+}
+.btn-team {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--dark);
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.btn-team:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212,175,55,0.4);
+}
+.team-form .form-note {
+    text-align: center;
+    color: rgba(255,255,255,0.4);
+    font-size: 0.75rem;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .team-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .team-images-grid {
+        grid-template-columns: 1fr;
+    }
+    .join-team { padding: 60px 0; }
+    .team-data-box { grid-template-columns: 1fr; }
+}

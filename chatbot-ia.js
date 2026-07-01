@@ -334,6 +334,42 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Lead capturado:', data);
     });
 
+    // ========== FORM EQUIPO (colaboradores) ==========
+    const teamForm = document.getElementById('team-form');
+    if (teamForm) {
+        teamForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+
+            // Guardar en Netlify
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            }).catch((err) => console.error('Error formulario equipo:', err));
+
+            // Abrir WhatsApp con los datos
+            const msg = [
+                '¡Hola Kepa! Me interesa la OPORTUNIDAD DE NEGOCIO del oro 💼',
+                'Nombre: ' + (data.nombre || '-'),
+                'Teléfono: ' + (data.telefono || '-'),
+                'Email: ' + (data.email || '-'),
+                'Situación: ' + (data.situacion || '-')
+            ].join('\n');
+            window.open('https://wa.me/' + CHATBOT_CONFIG.whatsappNumber + '?text=' + encodeURIComponent(msg), '_blank');
+
+            form.innerHTML = `
+                <div style="text-align:center; padding:30px;">
+                    <div style="font-size:3rem; margin-bottom:15px;">🔓</div>
+                    <h4 style="margin-bottom:10px;">¡Recibido!</h4>
+                    <p style="color:#6c757d;font-size:0.9rem;">Te contacto en menos de 24h para contarte todos los detalles de la oportunidad.</p>
+                </div>
+            `;
+        });
+    }
+
     // ========== SMOOTH SCROLL ==========
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
