@@ -183,16 +183,17 @@
     ============================================== -->
 
     <!-- TICKER PRECIO ORO EN VIVO -->
+    <!-- TICKER PRECIOS METALES EN VIVO (propio, sin depender de widgets externos) -->
     <div class="gold-ticker">
-        <div class="ticker-content">
-            <span class="ticker-item">🥇 ORO: <span class="price">116,49€/g</span> <span class="change-up">▲ +0,23%</span></span>
-            <span class="ticker-item">🥈 PLATA: <span class="price">1,82€/g</span> <span class="change-down">▼ -0,8%</span></span>
-            <span class="ticker-item">⬜ PLATINO: <span class="price">29,4€/g</span> <span class="change-up">▲ +0,5%</span></span>
-            <span class="ticker-item">🔲 PALADIO: <span class="price">27,1€/g</span> <span class="change-up">▲ +1,2%</span></span>
-            <span class="ticker-item">📊 RATIO ORO/PLATA: <span class="price">66.2</span></span>
-            <span class="ticker-item">🥇 ORO: <span class="price">116,49€/g</span> <span class="change-up">▲ +0,23%</span></span>
-            <span class="ticker-item">🥈 PLATA: <span class="price">1,82€/g</span> <span class="change-down">▼ -0,8%</span></span>
-            <span class="ticker-item">⬜ PLATINO: <span class="price">29,4€/g</span> <span class="change-up">▲ +0,5%</span></span>
+        <div class="ticker-content" id="ticker-live">
+            <span class="ticker-item">🥇 ORO: <span class="price" id="p-oro">cargando...</span></span>
+            <span class="ticker-item">🥈 PLATA: <span class="price" id="p-plata">cargando...</span></span>
+            <span class="ticker-item">⬜ PLATINO: <span class="price" id="p-platino">cargando...</span></span>
+            <span class="ticker-item">🔲 PALADIO: <span class="price" id="p-paladio">cargando...</span></span>
+            <span class="ticker-item">📊 RATIO ORO/PLATA: <span class="price" id="p-ratio">--</span></span>
+            <span class="ticker-item">🥇 ORO: <span class="price" id="p-oro2">cargando...</span></span>
+            <span class="ticker-item">🥈 PLATA: <span class="price" id="p-plata2">cargando...</span></span>
+            <span class="ticker-item">⬜ PLATINO: <span class="price" id="p-platino2">cargando...</span></span>
         </div>
     </div>
 
@@ -580,6 +581,7 @@
     </div>
 
     <!-- SCRIPTS -->
+    <script src="ticker-prices.js"></script>
     <script src="error-handler.js"></script>
     <script src="app-integration.js"></script>
     <script src="chatbot-ia.js"></script>
