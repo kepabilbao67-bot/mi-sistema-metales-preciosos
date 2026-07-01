@@ -149,11 +149,6 @@
         .whatsapp-float { position:fixed; bottom:90px; right:20px; background:#25D366; color:white; width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.8rem; text-decoration:none; box-shadow:0 4px 15px rgba(37,211,102,0.4); z-index:9998; transition:transform 0.3s; }
         .whatsapp-float:hover { transform:scale(1.1); }
         /* Notificación social proof */
-        .social-proof { position:fixed; bottom:20px; left:20px; background:white; border-radius:12px; padding:12px 18px; box-shadow:0 5px 25px rgba(0,0,0,0.15); display:flex; align-items:center; gap:10px; font-size:0.8rem; z-index:9997; transform:translateX(-120%); transition:transform 0.4s ease; max-width:300px; }
-        .social-proof.show { transform:translateX(0); }
-        .social-proof .sp-icon { font-size:1.5rem; }
-        .social-proof .sp-text strong { display:block; font-size:0.75rem; color:#1a1a2e; }
-        .social-proof .sp-text span { color:#6c757d; font-size:0.7rem; }
     </style>
     
     <!-- =============================================
@@ -571,13 +566,6 @@
     <!-- Botón flotante WhatsApp (siempre visible) -->
     <a href="https://wa.me/34611918310?text=Hola%20Kepa!%20Me%20interesa%20el%20ahorro%20en%20oro" class="whatsapp-float" aria-label="Contactar por WhatsApp">💬</a>
 
-    <!-- Social Proof Notification (aparece cada 30 seg) -->
-    <div class="social-proof" id="social-proof">
-        <span class="sp-icon">🥇</span>
-        <div class="sp-text">
-            <strong>Alguien de España acaba de pedir info</strong>
-            <span>Hace 2 minutos</span>
-        </div>
     </div>
 
     <!-- SCRIPTS -->
@@ -599,27 +587,6 @@
     document.querySelector('.header').classList.add('visible');
 
     // Social proof notifications (crea urgencia)
-    const socialProofs = [
-        { text: 'Alguien de Madrid acaba de pedir info', time: 'Hace 2 min' },
-        { text: 'Una persona de Barcelona se ha registrado', time: 'Hace 5 min' },
-        { text: '3 personas están viendo esta página ahora', time: 'Ahora' },
-        { text: 'Alguien de Bilbao ha solicitado la guía gratis', time: 'Hace 8 min' },
-        { text: 'Nuevo lead desde Instagram', time: 'Hace 3 min' },
-        { text: 'Alguien de Valencia quiere saber más', time: 'Hace 12 min' },
-    ];
-    let spIndex = 0;
-    function showSocialProof() {
-        const sp = document.getElementById('social-proof');
-        const data = socialProofs[spIndex % socialProofs.length];
-        sp.querySelector('strong').textContent = data.text;
-        sp.querySelector('span').textContent = data.time;
-        sp.classList.add('show');
-        setTimeout(() => sp.classList.remove('show'), 4000);
-        spIndex++;
-    }
-    // Primera a los 15 seg, después cada 35 seg
-    setTimeout(showSocialProof, 15000);
-    setInterval(showSocialProof, 35000);
 
     // Contador animado en el hero
     function animateCounters() {

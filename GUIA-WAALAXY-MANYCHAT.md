@@ -325,7 +325,7 @@ Si la empresa cerrara, tu oro sigue siendo tuyo (está en cámaras de terceros, 
 ```
 ¡Genial! Haz clic aquí para abrir WhatsApp directamente:
 
-👉 [ENLACE wa.me/34TUNUMERO?text=Hola!+Me+interesa+el+ahorro+en+oro]
+👉 [ENLACE wa.me/34611918310?text=Hola!+Me+interesa+el+ahorro+en+oro]
 
 Escríbele "Hola, vengo de Instagram" y te atiende en menos de 1 hora.
 

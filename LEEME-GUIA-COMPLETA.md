@@ -76,7 +76,7 @@
 Busca estas líneas al principio del archivo:
 ```javascript
 partnerName: 'Tu Nombre',        // ← PON TU NOMBRE REAL
-whatsappNumber: '34600000000',   // ← PON TU WHATSAPP (sin +)
+whatsappNumber: '34611918310',   // ← PON TU WHATSAPP (sin +)
 whatsappMessage: 'Hola!...',     // ← Mensaje que reciben al escribirte
 ```
 
@@ -85,7 +85,7 @@ whatsappMessage: 'Hola!...',     // ← Mensaje que reciben al escribirte
 ```javascript
 partner: {
     name: 'TU NOMBRE AQUÍ',       // ← Tu nombre
-    whatsapp: '34TUNUMERO',       // ← Tu WhatsApp
+    whatsapp: '34611918310',       // ← Tu WhatsApp
     email: 'tu@email.com',        // ← Tu email
     instagram: '@tuusuario',      // ← Tu Instagram
 }
@@ -95,7 +95,7 @@ partner: {
 
 Usa Ctrl+H (buscar y reemplazar) en tu editor:
 ```
-Buscar: "34TUNUMERO"  → Reemplazar: tu número real (ej: 34612345678)
+Buscar: "34611918310"  → Reemplazar: tu número real (ej: 34612345678)
 Buscar: "tudominio.com" → Reemplazar: tu dominio real
 Buscar: "OroParaTuFuturo" → Reemplazar: tu marca/nombre
 Buscar: "[Tu Nombre]" → Reemplazar: tu nombre real
