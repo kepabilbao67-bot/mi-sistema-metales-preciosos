@@ -1,46 +1,65 @@
 // ============================================================
 //  TICKER DE PRECIOS REALES — Oro, Plata, Platino, Paladio
-//  Se actualiza cada 60 segundos. No depende de widgets externos.
+//  Fuente: Swissquote (gratis, sin clave, datos en vivo)
+//  Precios en EUR/onza troy -> convertidos a EUR/gramo
+//  Se actualiza cada 30 segundos
 // ============================================================
 (function () {
     'use strict';
-    var defaults = { oro: 116.49, plata: 1.82, platino: 29.4, paladio: 27.1 };
+    var OZ_TO_GRAM = 31.1035;
+    var defaults = { oro: 114.6, plata: 1.68, platino: 31.2, paladio: 28.8 };
+    var current = Object.assign({}, defaults);
 
-    function fmt(val) { return val.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€/g'; }
+    function fmt(val) {
+        return val.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€/g';
+    }
 
     function updateDOM(p) {
         var ratio = p.oro > 0 && p.plata > 0 ? (p.oro / p.plata).toFixed(1) : '--';
-        var ids = [['p-oro','p-plata','p-platino','p-paladio','p-ratio'],['p-oro2','p-plata2','p-platino2']];
-        ids[0].forEach(function(id,i){
-            var el=document.getElementById(id); if(!el) return;
-            if(i===0) el.textContent=fmt(p.oro);
-            if(i===1) el.textContent=fmt(p.plata);
-            if(i===2) el.textContent=fmt(p.platino);
-            if(i===3) el.textContent=fmt(p.paladio);
-            if(i===4) el.textContent=ratio;
-        });
-        ids[1].forEach(function(id,i){
-            var el=document.getElementById(id); if(!el) return;
-            if(i===0) el.textContent=fmt(p.oro);
-            if(i===1) el.textContent=fmt(p.plata);
-            if(i===2) el.textContent=fmt(p.platino);
+        var map = {
+            'p-oro': p.oro, 'p-oro2': p.oro,
+            'p-plata': p.plata, 'p-plata2': p.plata,
+            'p-platino': p.platino, 'p-platino2': p.platino,
+            'p-paladio': p.paladio,
+            'p-ratio': null
+        };
+        Object.keys(map).forEach(function(id) {
+            var el = document.getElementById(id);
+            if (!el) return;
+            if (id === 'p-ratio') { el.textContent = ratio; }
+            else { el.textContent = fmt(map[id]); }
         });
     }
 
-    async function fetchPrices() {
+    async function fetchMetal(symbol) {
         try {
-            var r = await fetch('https://api.metals.dev/v1/latest?api_key=demo&currency=EUR&unit=gram');
-            if (!r.ok) throw new Error('err');
+            var r = await fetch('https://forex-data-feed.swissquote.com/public-quotes/bboquotes/instrument/' + symbol + '/EUR');
+            if (!r.ok) return null;
             var d = await r.json();
-            var m = d.metals || {};
-            return { oro: m.gold||defaults.oro, plata: m.silver||defaults.plata, platino: m.platinum||defaults.platino, paladio: m.palladium||defaults.paladio };
-        } catch(e) { return defaults; }
+            return d[0].spreadProfilePrices[0].bid / OZ_TO_GRAM;
+        } catch(e) { return null; }
+    }
+
+    async function fetchAll() {
+        var results = await Promise.allSettled([
+            fetchMetal('XAU'),
+            fetchMetal('XAG'),
+            fetchMetal('XPT'),
+            fetchMetal('XPD')
+        ]);
+        current = {
+            oro: (results[0].status === 'fulfilled' && results[0].value) ? results[0].value : current.oro,
+            plata: (results[1].status === 'fulfilled' && results[1].value) ? results[1].value : current.plata,
+            platino: (results[2].status === 'fulfilled' && results[2].value) ? results[2].value : current.platino,
+            paladio: (results[3].status === 'fulfilled' && results[3].value) ? results[3].value : current.paladio
+        };
+        return current;
     }
 
     document.addEventListener('DOMContentLoaded', async function () {
         updateDOM(defaults);
-        var prices = await fetchPrices();
+        var prices = await fetchAll();
         updateDOM(prices);
-        setInterval(async function () { updateDOM(await fetchPrices()); }, 60000);
+        setInterval(async function () { updateDOM(await fetchAll()); }, 30000);
     });
 })();
