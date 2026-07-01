@@ -182,26 +182,17 @@
     14. CHATBOT IA - Asistente flotante
     ============================================== -->
 
-    <!-- TICKER PRECIOS METALES EN VIVO (TradingView - datos reales) -->
-    <div class="gold-ticker-live">
-        <div class="tradingview-widget-container">
-            <div class="tradingview-widget-container__widget"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-            {
-                "symbols": [
-                    { "description": "🥇 Oro (EUR)", "proName": "OANDA:XAUEUR" },
-                    { "description": "🥈 Plata (EUR)", "proName": "OANDA:XAGEUR" },
-                    { "description": "⬜ Platino", "proName": "OANDA:XPTUSD" },
-                    { "description": "🔲 Paladio", "proName": "OANDA:XPDUSD" },
-                    { "description": "🥇 Oro (USD)", "proName": "TVC:GOLD" }
-                ],
-                "showSymbolLogo": false,
-                "isTransparent": true,
-                "displayMode": "adaptive",
-                "colorTheme": "dark",
-                "locale": "es"
-            }
-            </script>
+    <!-- TICKER PRECIO ORO EN VIVO -->
+    <div class="gold-ticker">
+        <div class="ticker-content">
+            <span class="ticker-item">🥇 ORO: <span class="price">116,49€/g</span> <span class="change-up">▲ +0,23%</span></span>
+            <span class="ticker-item">🥈 PLATA: <span class="price">1,82€/g</span> <span class="change-down">▼ -0,8%</span></span>
+            <span class="ticker-item">⬜ PLATINO: <span class="price">29,4€/g</span> <span class="change-up">▲ +0,5%</span></span>
+            <span class="ticker-item">🔲 PALADIO: <span class="price">27,1€/g</span> <span class="change-up">▲ +1,2%</span></span>
+            <span class="ticker-item">📊 RATIO ORO/PLATA: <span class="price">66.2</span></span>
+            <span class="ticker-item">🥇 ORO: <span class="price">116,49€/g</span> <span class="change-up">▲ +0,23%</span></span>
+            <span class="ticker-item">🥈 PLATA: <span class="price">1,82€/g</span> <span class="change-down">▼ -0,8%</span></span>
+            <span class="ticker-item">⬜ PLATINO: <span class="price">29,4€/g</span> <span class="change-up">▲ +0,5%</span></span>
         </div>
     </div>
 
@@ -210,13 +201,12 @@
         <div class="container">
             <div class="logo">🥇 Kepa Bilbao — Oro Físico</div>
             <nav class="nav">
-                <a href="#precios-vivo">Precios en Vivo</a>
-                <a href="#metales">Metales</a>
                 <a href="#como-funciona">Cómo Funciona</a>
                 <a href="#ventajas">Ventajas</a>
                 <a href="#planes">Planes</a>
                 <a href="#calculadora">Calculadora</a>
                 <a href="#faq">FAQ</a>
+                <a href="#equipo">Oportunidad</a>
             </nav>
             <a href="#contacto" class="btn-header">Pedir Info Gratis</a>
         </div>
@@ -226,28 +216,18 @@
     <section class="hero">
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <div class="hero-grid">
-                <div class="hero-text">
-                    <div class="hero-badge">📈 El oro ha subido +144% en 5 años</div>
-                    <h1>Ahorra en <span class="gold-text">Oro Físico</span> desde 25€/mes</h1>
-                    <p class="hero-subtitle">Protege tu patrimonio con la mayor empresa de metales preciosos de Europa. Sin permanencia. Sin comisiones ocultas. 100% tuyo.</p>
-                    <div class="hero-stats">
-                        <div class="stat"><span class="stat-number">+200.000</span><span class="stat-label">Inversores activos</span></div>
-                        <div class="stat"><span class="stat-number">134</span><span class="stat-label">Países</span></div>
-                        <div class="stat"><span class="stat-number">17+</span><span class="stat-label">Años experiencia</span></div>
-                        <div class="stat"><span class="stat-number">500M€</span><span class="stat-label">Facturación</span></div>
-                    </div>
-                    <div class="hero-cta">
-                        <a href="#contacto" class="btn-primary">Quiero Información Gratis</a>
-                        <a href="#como-funciona" class="btn-secondary">Ver Cómo Funciona</a>
-                    </div>
-                </div>
-                <div class="hero-photo">
-                    <div class="hero-photo-frame">
-                        <img src="images/kepa.jpg" alt="Kepa Bilbao, tu asesor de ahorro en oro físico, sujetando un lingote de oro" loading="eager">
-                    </div>
-                    <div class="hero-photo-tag">🥇 Kepa Bilbao · Tu asesor de confianza</div>
-                </div>
+            <div class="hero-badge">📈 El oro ha subido +144% en 5 años</div>
+            <h1>Ahorra en <span class="gold-text">Oro Físico</span> desde 25€/mes</h1>
+            <p class="hero-subtitle">Protege tu patrimonio con la mayor empresa de metales preciosos de Europa. Sin permanencia. Sin comisiones ocultas. 100% tuyo.</p>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-number">+200.000</span><span class="stat-label">Inversores activos</span></div>
+                <div class="stat"><span class="stat-number">134</span><span class="stat-label">Países</span></div>
+                <div class="stat"><span class="stat-number">17+</span><span class="stat-label">Años experiencia</span></div>
+                <div class="stat"><span class="stat-number">500M€</span><span class="stat-label">Facturación</span></div>
+            </div>
+            <div class="hero-cta">
+                <a href="#contacto" class="btn-primary">Quiero Información Gratis</a>
+                <a href="#como-funciona" class="btn-secondary">Ver Cómo Funciona</a>
             </div>
         </div>
     </section>
@@ -321,28 +301,6 @@
         </div>
     </section>
 
-    <!-- GALERIA METALES FISICOS -->
-    <section class="metals-gallery" id="metales">
-        <div class="container">
-            <h2>El metal que vas a <span class="gold-text">tener en tus manos</span></h2>
-            <p class="section-subtitle">Oro, plata y platino físico real, guardado con máxima seguridad a tu nombre</p>
-            <div class="gallery-grid">
-                <figure class="gallery-item">
-                    <img src="images/oro.jpg" alt="Lingotes y monedas de oro físico de inversión" loading="lazy">
-                    <figcaption><span class="gallery-emoji">🥇</span> Oro físico<small>Lingotes y monedas con número de serie a tu nombre</small></figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/plata.jpg" alt="Monedas y lingotes de plata, platino y paladio" loading="lazy">
-                    <figcaption><span class="gallery-emoji">🥈</span> Plata, platino y paladio<small>Diversifica tu ahorro entre varios metales</small></figcaption>
-                </figure>
-                <figure class="gallery-item">
-                    <img src="images/caja-fuerte.jpg" alt="Caja fuerte de alta seguridad para metales preciosos" loading="lazy">
-                    <figcaption><span class="gallery-emoji">🔒</span> Máxima seguridad<small>Cámaras LBMA en Zúrich, Londres y Frankfurt</small></figcaption>
-                </figure>
-            </div>
-        </div>
-    </section>
-
     <!-- RENDIMIENTO -->
     <section class="performance">
         <div class="container">
@@ -363,80 +321,6 @@
                 </div>
                 <p class="disclaimer">*Rendimiento pasado no garantiza resultados futuros. El oro es un activo de largo plazo.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- PRECIOS EN VIVO (Gráficos reales TradingView) -->
-    <section class="live-prices" id="precios-vivo">
-        <div class="container">
-            <h2>Precios del Oro, Plata y Platino <span class="gold-text">en Vivo</span></h2>
-            <p class="section-subtitle">Cotizaciones reales del mercado mundial, actualizadas en tiempo real</p>
-            <div class="charts-grid">
-                <div class="chart-card">
-                    <div class="chart-card-head">🥇 Oro (EUR)</div>
-                    <div class="chart-embed">
-                        <div class="tradingview-widget-container">
-                            <div class="tradingview-widget-container__widget"></div>
-                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-                            {
-                                "symbol": "OANDA:XAUEUR",
-                                "width": "100%",
-                                "height": "100%",
-                                "locale": "es",
-                                "dateRange": "12M",
-                                "colorTheme": "dark",
-                                "isTransparent": true,
-                                "autosize": true,
-                                "chartOnly": false
-                            }
-                            </script>
-                        </div>
-                    </div>
-                </div>
-                <div class="chart-card">
-                    <div class="chart-card-head">🥈 Plata (EUR)</div>
-                    <div class="chart-embed">
-                        <div class="tradingview-widget-container">
-                            <div class="tradingview-widget-container__widget"></div>
-                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-                            {
-                                "symbol": "OANDA:XAGEUR",
-                                "width": "100%",
-                                "height": "100%",
-                                "locale": "es",
-                                "dateRange": "12M",
-                                "colorTheme": "dark",
-                                "isTransparent": true,
-                                "autosize": true,
-                                "chartOnly": false
-                            }
-                            </script>
-                        </div>
-                    </div>
-                </div>
-                <div class="chart-card">
-                    <div class="chart-card-head">⬜ Platino (USD)</div>
-                    <div class="chart-embed">
-                        <div class="tradingview-widget-container">
-                            <div class="tradingview-widget-container__widget"></div>
-                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-                            {
-                                "symbol": "OANDA:XPTUSD",
-                                "width": "100%",
-                                "height": "100%",
-                                "locale": "es",
-                                "dateRange": "12M",
-                                "colorTheme": "dark",
-                                "isTransparent": true,
-                                "autosize": true,
-                                "chartOnly": false
-                            }
-                            </script>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <p class="charts-note">📊 Datos de mercado en tiempo real vía TradingView. El oro y la plata se muestran en euros (EUR); el platino en dólares (USD).</p>
         </div>
     </section>
 
@@ -540,11 +424,7 @@
             <p class="section-subtitle">Te contacto personalmente para resolver todas tus dudas</p>
             <div class="contact-grid">
                 <div class="contact-form-wrapper">
-                    <form id="contact-form" class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                        <!-- Necesario para Netlify Forms -->
-                        <input type="hidden" name="form-name" value="contact">
-                        <!-- Campo anti-spam (oculto para humanos) -->
-                        <p class="hidden-field" style="display:none;"><label>No rellenar este campo: <input name="bot-field"></label></p>
+                    <form id="contact-form" class="contact-form">
                         <div class="form-row">
                             <div class="form-group"><label for="name">Nombre completo</label><input type="text" id="name" name="name" placeholder="Tu nombre" required></div>
                             <div class="form-group"><label for="phone">Teléfono / WhatsApp</label><input type="tel" id="phone" name="phone" placeholder="+34 600 000 000" required></div>
@@ -559,6 +439,81 @@
                 <div class="contact-info">
                     <div class="contact-card"><h4>Contacto directo</h4><div class="contact-method"><span>📱</span><div><strong>WhatsApp</strong><p>Escríbeme "ORO" y te respondo al instante</p><a href="https://wa.me/34611918310?text=Hola!%20Me%20interesa%20el%20ahorro%20en%20oro" class="whatsapp-btn">Abrir WhatsApp</a></div></div><div class="contact-method"><span>📧</span><div><strong>Email</strong><p>Respuesta en menos de 24h</p></div></div><div class="contact-method"><span>📞</span><div><strong>Llamada</strong><p>Agenda una llamada de 10 min sin compromiso</p></div></div></div>
                     <div class="guarantee-box"><h4>🛡️ Mi compromiso contigo</h4><ul><li>Te explico todo sin prisas ni presiones</li><li>Si no es para ti, te lo digo honestamente</li><li>Cero spam, cero llamadas no deseadas</li><li>Información 100% transparente</li></ul></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÚNETE AL EQUIPO (sección de captación de colaboradores) -->
+    <section class="join-team" id="equipo">
+        <div class="container">
+            <div class="team-header">
+                <div class="team-badge">💼 Oportunidad de Negocio</div>
+                <h2>¿Y si además de ahorrar, pudieras <span class="gold-text">generar ingresos</span>?</h2>
+                <p class="team-hook">Algunas personas no solo ahorran en oro... también ganan dinero ayudando a otros a hacerlo.</p>
+            </div>
+
+            <!-- Dos imágenes con datos -->
+            <div class="team-images-grid">
+                <div class="team-img-card">
+                    <img src="images/lingotes-equipo.jpg" alt="Lingotes de oro físico apilados - inversión real" loading="lazy">
+                    <div class="team-img-overlay">
+                        <span class="team-img-stat">+144%</span>
+                        <span class="team-img-label">Rendimiento del oro en 5 años</span>
+                    </div>
+                </div>
+                <div class="team-img-card">
+                    <img src="images/dinero.jpg" alt="Comisiones y ganancias por cada plan vendido" loading="lazy">
+                    <div class="team-img-overlay">
+                        <span class="team-img-stat">Comisiones</span>
+                        <span class="team-img-label">Por cada plan que se active a través de ti</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datos clave + formulario -->
+            <div class="team-content">
+                <div class="team-text">
+                    <ul class="team-hints">
+                        <li>📈 Comisiones por cada plan S-3, M-6, L-12 o XL-24 que vendas</li>
+                        <li>🕐 Tú decides cuándo y cuánto trabajar — sin jefes</li>
+                        <li>🌍 Desde cualquier lugar, solo con tu móvil</li>
+                        <li>🎓 Formación completa incluida — no necesitas saber de finanzas</li>
+                        <li>🔄 Ingresos recurrentes: tus clientes siguen ahorrando mes a mes</li>
+                    </ul>
+                    <div class="team-data-box">
+                        <div class="team-data-item"><span class="team-data-num">+200.000</span><span class="team-data-label">Inversores en el mundo</span></div>
+                        <div class="team-data-item"><span class="team-data-num">134</span><span class="team-data-label">Países</span></div>
+                        <div class="team-data-item"><span class="team-data-num">500M€</span><span class="team-data-label">Facturación</span></div>
+                    </div>
+                    <p class="team-mystery">No puedo contarte más aquí. Las condiciones exactas y cuánto puedes ganar... <strong>te lo explico personalmente.</strong></p>
+                </div>
+                <div class="team-form-wrapper">
+                    <div class="team-card-mystery">
+                        <div class="mystery-icon">🔒</div>
+                        <p>Información reservada</p>
+                        <span>Solo para personas comprometidas</span>
+                    </div>
+                    <form id="team-form" class="team-form" name="equipo" method="POST" data-netlify="true" netlify-honeypot="bot-field-team">
+                        <input type="hidden" name="form-name" value="equipo">
+                        <p style="display:none;"><label>No rellenar: <input name="bot-field-team"></label></p>
+                        <h4>Quiero saber más sobre la oportunidad</h4>
+                        <div class="form-group"><input type="text" name="nombre" placeholder="Tu nombre" required></div>
+                        <div class="form-group"><input type="tel" name="telefono" placeholder="Tu WhatsApp / Teléfono" required></div>
+                        <div class="form-group"><input type="email" name="email" placeholder="Tu email" required></div>
+                        <div class="form-group">
+                            <select name="situacion">
+                                <option value="" disabled selected>¿Cuál es tu situación?</option>
+                                <option value="empleado">Empleado/a (busco extra)</option>
+                                <option value="autonomo">Autónomo/a</option>
+                                <option value="desempleado">En búsqueda de empleo</option>
+                                <option value="emprendedor">Emprendedor/a</option>
+                                <option value="otro">Otra</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-team">Enviar y descubrir la oportunidad 🔓</button>
+                        <p class="form-note">🔒 Información 100% confidencial. Te contacto en menos de 24h.</p>
+                    </form>
                 </div>
             </div>
         </div>
@@ -605,7 +560,6 @@
     <script src="error-handler.js"></script>
     <script src="app-integration.js"></script>
     <script src="chatbot-ia.js"></script>
-    <script src="interactive.js"></script>
     
     <!-- Script de mejoras UX -->
     <script>
