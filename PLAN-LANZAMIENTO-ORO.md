@@ -45,3 +45,14 @@ Usa los textos ya escritos en `FIVERR-TEMPLATE-VENDER.md`:
 - `FACEBOOK-ADS-GUIA.md` — publicidad (cuando haya presupuesto)
 - `FIVERR-TEMPLATE-VENDER.md` — gigs y estrategia de venta
 - `CRM-GOOGLE-SHEETS.md` — CRM gratis
+
+
+---
+
+## 🎬 Vídeos (Reels / TikTok / Shorts)
+USA LA VERSIÓN SEGURA: `SCRIPTS-VIDEOS-REELS-SEGUROS.md` (10 guiones conformes).
+- ⚠️ No uses la versión antigua tal cual: contiene promesas de rentabilidad y cifras que
+  pueden incumplir la normativa de publicidad financiera.
+- Añade siempre el descargo: "No es asesoramiento financiero. Rentabilidades pasadas no
+  garantizan resultados futuros."
+- Graba vertical 9:16, edita en CapCut, sube a Reels + TikTok + YouTube Shorts. 3-5/semana.
