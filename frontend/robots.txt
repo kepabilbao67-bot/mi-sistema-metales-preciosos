@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mi-sistema-metales-preciosos.vercel.app/sitemap.xml
