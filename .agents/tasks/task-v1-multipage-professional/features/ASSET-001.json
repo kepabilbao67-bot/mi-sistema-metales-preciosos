@@ -2,7 +2,9 @@
   "id": "ASSET-001",
   "type": "task",
   "description": "Subir imágenes reales a frontend/images/ y confirmar que Vercel las carga correctamente.",
-  "status": "pending",
+  "status": "completed",
+  "findings": "7 imágenes subidas a origin/main. Verificadas en producción: todas cargan correctamente en Vercel."
+}
   "steps": [
     "Añadir al repositorio las 7 imágenes necesarias: lingotes-equipo.jpg, oro.jpg, plata.jpg, vault-banner.jpg, dinero.jpg, caja-fuerte.jpg, kepa.jpg.",
     "Confirmar que todas están dentro de frontend/images/.",

@@ -2,7 +2,9 @@
   "id": "QA-001",
   "type": "task",
   "description": "Revisión final completa de navegación, responsive, enlaces, CTAs y textos legales antes de deploy.",
-  "status": "pending",
+  "status": "completed",
+  "findings": "APTO CON OBSERVACIONES MENORES. Web publicada en Vercel. Imágenes visibles. Tildes corregidas. Navegación operativa. Observación aceptada: tarjetas de blog sin enlace a artículos (fase futura)."
+}
   "steps": [
     "Verificar que todos los enlaces internos funcionan correctamente entre las 8 páginas.",
     "Comprobar responsive en móvil, tablet y escritorio (menú hamburguesa, tarjetas, formulario).",

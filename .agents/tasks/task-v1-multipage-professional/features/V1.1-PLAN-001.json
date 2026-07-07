@@ -1,0 +1,47 @@
+{
+  "id": "V1.1-PLAN-001",
+  "type": "planning",
+  "description": "Definir siguiente bloque de mejora V1.1: captación, formularios, WhatsApp, blog o partners.",
+  "status": "pending",
+  "options": [
+    {
+      "id": "A",
+      "name": "Captación y formularios",
+      "description": "Mejorar formulario de contacto con autorespuesta, añadir formulario en más páginas, preparar integración con CRM futuro.",
+      "impact": "Alta",
+      "effort": "Media"
+    },
+    {
+      "id": "B",
+      "name": "Blog con artículos reales",
+      "description": "Crear 3-4 artículos completos enlazados desde blog.html. Contenido educativo indexable por Google.",
+      "impact": "Alta (SEO)",
+      "effort": "Media-Alta"
+    },
+    {
+      "id": "C",
+      "name": "WhatsApp mejorado",
+      "description": "Botón con mensaje contextual por página, widget de chat o popup de bienvenida.",
+      "impact": "Media",
+      "effort": "Baja"
+    },
+    {
+      "id": "D",
+      "name": "Partners/colaboradores",
+      "description": "Página de registro para interesados en colaborar, con formulario específico.",
+      "impact": "Media",
+      "effort": "Media"
+    },
+    {
+      "id": "E",
+      "name": "SEO y rendimiento",
+      "description": "Añadir sitemap.xml, robots.txt, meta tags Open Graph, favicon, optimizar imágenes.",
+      "impact": "Alta (visibilidad)",
+      "effort": "Baja"
+    }
+  ],
+  "recommendation": "Opción E (SEO) primero por bajo esfuerzo y alto impacto en visibilidad. Luego Opción B (Blog) para contenido indexable. Después Opción A (Captación).",
+  "depends_on": ["QA-001"],
+  "blocked_reason": null,
+  "findings": null
+}

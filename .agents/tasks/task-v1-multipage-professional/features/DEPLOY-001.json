@@ -2,7 +2,9 @@
   "id": "DEPLOY-001",
   "type": "task",
   "description": "Resolver conexión GitHub/Vercel y publicar la versión V1.0 en producción.",
-  "status": "pending",
+  "status": "completed",
+  "findings": "Web publicada en https://mi-sistema-metales-preciosos.vercel.app. Deploy automático desde main. cleanUrls activo. Todas las páginas accesibles."
+}
   "steps": [
     "Verificar que vercel.json apunta correctamente a frontend/.",
     "Conectar el repositorio GitHub con Vercel (si no está conectado).",
