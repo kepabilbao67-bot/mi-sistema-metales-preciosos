@@ -1,0 +1,32 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Create the shared multi-page structure: common CSS, shared navigation/footer component pattern, and restructure folder layout. This establishes the foundation all pages will use.",
+  "status": "in_progress",
+  "steps": [
+    "Restructure the frontend/ folder: keep images/, create a new shared style.css that expands the existing one with multi-page support (active nav states per page, page-specific sections). The site will live in the frontend/ folder as the deployment root.",
+    "Create a shared CSS file at frontend/style.css that includes ALL existing styles plus new page-specific sections. Add styles for: page headers (inner page hero banners smaller than homepage), content sections with prose styling, timeline/steps components, partner cards, blog card grids, legal page prose, and a consistent footer with site links.",
+    "Create frontend/script.js that works across all pages: navbar scroll effect, mobile menu, reveal animations, active nav link highlighting based on current page (not just scroll position), year in footer, and form validation.",
+    "Update frontend/index.html as the new homepage. Keep the premium hero (protege tu patrimonio), but update navigation to link to the new pages: Inicio (index.html), Sobre Kepa (sobre-kepa.html), Metales Preciosos (metales-preciosos.html), Como Funciona (como-funciona.html), Partners (partners.html), Blog (blog.html), Contacto (contacto.html). Keep the hero, but add a brief 'how it works' teaser section (3 steps), a trust/about teaser section linking to the full about page, and a CTA section before the footer. Remove the current oro/plata/nosotros/contacto sections since those will now be separate pages.",
+    "Ensure the homepage has clear CTAs: 'Solicitar informacion', 'Hablar con Kepa', 'Ver como funciona', 'Contactar por WhatsApp'. The WhatsApp number should be 34611918310.",
+    "Add a proper footer to be shared across all pages with: site links organized by category (Descubre: Metales Preciosos, Como Funciona, Blog/Guias; Empresa: Sobre Kepa, Partners/Auvesta, Contacto; Legal: Aviso Legal, Politica de Privacidad), WhatsApp contact link, copyright notice.",
+    "Update vercel.json at the project root to set frontend/ as the output directory with proper rewrites/routes for the multi-page structure and cleanUrls."
+  ],
+  "acceptance_criteria": [
+    "frontend/index.html loads correctly as a premium homepage with working navigation links to all 7+ pages",
+    "CSS variables and design tokens are consistent with the existing premium black/gold palette",
+    "Navigation shows 7 main links and highlights the current page",
+    "Mobile hamburger menu works correctly",
+    "WhatsApp floating button uses number 34611918310",
+    "Footer contains organized links to all site pages",
+    "All CTAs are present: Solicitar informacion, Hablar con Kepa, Ver como funciona, Contactar por WhatsApp"
+  ],
+  "verification": [
+    "Open frontend/index.html and verify all navigation links point to correct page filenames",
+    "Verify the CSS loads and the black/gold premium design renders correctly",
+    "Verify the footer contains links to all pages organized by category",
+    "Verify WhatsApp button href contains 34611918310"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

@@ -1,11 +1,6 @@
 /* =============================================================
-   KEPA METALES PRECIOSOS — Interacciones (JavaScript puro)
-   - Navbar con efecto al hacer scroll
-   - Menú móvil (hamburguesa)
-   - Animaciones "reveal" al entrar en viewport
-   - Resaltado del enlace de navegación activo
-   - Validación básica del formulario de contacto
-   - Año dinámico en el footer
+   KEPA METALES PRECIOSOS - Interacciones (JavaScript puro)
+   Version multi-pagina
 ============================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -16,41 +11,48 @@ document.addEventListener("DOMContentLoaded", () => {
     --------------------------------------------------------- */
     const navbar = document.getElementById("navbar");
 
-    const onScroll = () => {
-        if (window.scrollY > 40) {
-            navbar.classList.add("is-scrolled");
-        } else {
-            navbar.classList.remove("is-scrolled");
-        }
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    if (navbar) {
+        const onScroll = () => {
+            if (window.scrollY > 40) {
+                navbar.classList.add("is-scrolled");
+            } else {
+                navbar.classList.remove("is-scrolled");
+            }
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+    }
 
     /* ---------------------------------------------------------
-       2. Menú móvil (abrir / cerrar)
+       2. Menu movil (abrir / cerrar)
     --------------------------------------------------------- */
     const toggle = document.getElementById("nav-toggle");
     const nav = document.querySelector(".nav");
     const navList = document.getElementById("nav-list");
 
     const closeMenu = () => {
-        nav.classList.remove("is-open");
-        toggle.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.setAttribute("aria-label", "Abrir menú");
+        if (nav && toggle) {
+            nav.classList.remove("is-open");
+            toggle.classList.remove("is-open");
+            toggle.setAttribute("aria-expanded", "false");
+            toggle.setAttribute("aria-label", "Abrir menu");
+        }
     };
 
-    toggle.addEventListener("click", () => {
-        const isOpen = nav.classList.toggle("is-open");
-        toggle.classList.toggle("is-open", isOpen);
-        toggle.setAttribute("aria-expanded", String(isOpen));
-        toggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
-    });
+    if (toggle && nav) {
+        toggle.addEventListener("click", () => {
+            const isOpen = nav.classList.toggle("is-open");
+            toggle.classList.toggle("is-open", isOpen);
+            toggle.setAttribute("aria-expanded", String(isOpen));
+            toggle.setAttribute("aria-label", isOpen ? "Cerrar menu" : "Abrir menu");
+        });
+    }
 
-    // Cierra el menú al pulsar cualquier enlace (útil en móvil)
-    navList.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", closeMenu);
-    });
+    if (navList) {
+        navList.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", closeMenu);
+        });
+    }
 
     /* ---------------------------------------------------------
        3. Animaciones "reveal" con IntersectionObserver
@@ -62,8 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
             (entries, obs) => {
                 entries.forEach((entry, index) => {
                     if (entry.isIntersecting) {
-                        // Pequeño retardo escalonado para un efecto más elegante
-                        entry.target.style.transitionDelay = `${(index % 4) * 80}ms`;
+                        entry.target.style.transitionDelay = ((index % 4) * 80) + "ms";
                         entry.target.classList.add("is-visible");
                         obs.unobserve(entry.target);
                     }
@@ -73,66 +74,69 @@ document.addEventListener("DOMContentLoaded", () => {
         );
         revealEls.forEach((el) => observer.observe(el));
     } else {
-        // Fallback: muestra todo si no hay soporte
         revealEls.forEach((el) => el.classList.add("is-visible"));
     }
 
     /* ---------------------------------------------------------
-       4. Resaltado del enlace de navegación activo
+       4. Navegacion activa segun la pagina actual
     --------------------------------------------------------- */
-    const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll(".nav__link");
+    const path = window.location.pathname;
+    const currentPage = path.substring(path.lastIndexOf("/") + 1) || "index.html";
 
-    const setActiveLink = () => {
-        const scrollPos = window.scrollY + 120;
-        let currentId = "";
-
-        sections.forEach((section) => {
-            if (scrollPos >= section.offsetTop) {
-                currentId = section.getAttribute("id");
-            }
-        });
-
-        navLinks.forEach((link) => {
-            link.classList.toggle(
-                "is-active",
-                link.getAttribute("href") === `#${currentId}`
-            );
-        });
-    };
-    window.addEventListener("scroll", setActiveLink, { passive: true });
-    setActiveLink();
+    navLinks.forEach((link) => {
+        const href = link.getAttribute("href");
+        if (href === currentPage || (currentPage === "" && href === "index.html")) {
+            link.classList.add("is-active");
+        }
+    });
 
     /* ---------------------------------------------------------
-       5. Validación básica del formulario de contacto
+       5. FAQ Accordion
+    --------------------------------------------------------- */
+    const faqItems = document.querySelectorAll(".faq__item");
+
+    faqItems.forEach((item) => {
+        const question = item.querySelector(".faq__question");
+        if (question) {
+            question.addEventListener("click", () => {
+                const isOpen = item.classList.contains("is-open");
+                faqItems.forEach((i) => i.classList.remove("is-open"));
+                if (!isOpen) {
+                    item.classList.add("is-open");
+                }
+            });
+        }
+    });
+
+    /* ---------------------------------------------------------
+       6. Validacion basica del formulario de contacto
     --------------------------------------------------------- */
     const form = document.getElementById("contact-form");
     const feedback = document.getElementById("form-feedback");
 
-    if (form) {
+    if (form && feedback) {
         form.addEventListener("submit", (e) => {
             e.preventDefault();
 
-            const name = form.name.value.trim();
-            const email = form.email.value.trim();
+            const name = form.elements.name ? form.elements.name.value.trim() : "";
+            const email = form.elements.email ? form.elements.email.value.trim() : "";
             const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
             if (!name || !emailOk) {
                 feedback.style.color = "#e07a7a";
-                feedback.textContent =
-                    "Por favor, completa tu nombre y un email válido.";
+                feedback.textContent = "Por favor, completa tu nombre y un email valido.";
                 return;
             }
 
             feedback.style.color = "";
-            feedback.textContent =
-                "¡Gracias! Hemos recibido tu solicitud. Te contactaremos muy pronto.";
+            feedback.textContent = "Gracias! Hemos recibido tu solicitud. Te contactaremos muy pronto.";
             form.reset();
         });
     }
 
     /* ---------------------------------------------------------
-       6. Año dinámico en el pie de página
+       7. Ano dinamico en el pie de pagina
     --------------------------------------------------------- */
     const yearEl = document.getElementById("year");
     if (yearEl) {

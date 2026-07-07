@@ -1,0 +1,35 @@
+{
+  "project_type": "Static multi-page website (HTML/CSS/JS pure, no frameworks)",
+  "language": "HTML, CSS, JavaScript",
+  "build_system": "None - static files served directly. Deployed via Vercel (vercel.json present with cleanUrls enabled)",
+  "test_framework": "None - manual browser testing, HTML validation",
+  "build_command": "N/A - static site, no build step required",
+  "test_command": "N/A - validate HTML structure manually",
+  "verification_instructions": "Open index.html in browser. Verify all pages load, navigation works, responsive design functions on mobile/tablet/desktop. Check all internal links resolve correctly.",
+  "snapshot_or_generated_files": null,
+  "setup_instructions": "No setup needed - pure HTML/CSS/JS. Files can be served with any HTTP server or opened directly in browser.",
+  "environment_constraints": "No build tools, no npm, no frameworks. Pure HTML/CSS/JS only. Google Fonts loaded from CDN (Cormorant Garamond + Inter). Vercel deployment with cleanUrls (no .html extensions needed in links).",
+  "contribution_requirements": "Keep design premium with black/gold palette. Use Cormorant Garamond for headings, Inter for body. No promises of profitability. No financial advice framing. Educational and transparent language. Guide users toward contact with Kepa.",
+  "key_patterns": {
+    "css_architecture": "Single CSS file with CSS custom properties (variables) in :root. BEM-like naming. Sections numbered in comments. Responsive with mobile-first breakpoints at 420px, 720px, 980px.",
+    "js_architecture": "Single JS file, vanilla JS with DOMContentLoaded wrapper. IntersectionObserver for scroll reveals. No libraries.",
+    "html_structure": "Semantic HTML5 with aria labels. .container wrapper for max-width. .reveal class for scroll animations. .section and .section--alt for alternating backgrounds.",
+    "design_tokens": "Colors: --black (#0b0b0d), --gold (#c9a24b), --gold-gradient (135deg metallic). Fonts: --font-display (Cormorant Garamond), --font-body (Inter). Border-radius: 16px (--radius). Nav height: 78px.",
+    "buttons": ".btn base with .btn--primary (gold gradient) and .btn--ghost (transparent with border). Rounded pill shape (border-radius: 100px).",
+    "navigation": "Fixed navbar with backdrop-filter blur. .is-scrolled state on scroll. Mobile hamburger menu slides from right.",
+    "whatsapp": "Floating WhatsApp button fixed bottom-right. Phone: 34600000000 (placeholder - needs real number from sobre-mi.html which shows 34611918310)."
+  },
+  "relevant_files": [
+    "frontend/index.html - current premium landing page (USE AS DESIGN REFERENCE)",
+    "frontend/style.css - full CSS with variables and responsive design (USE AS BASE)",
+    "frontend/script.js - vanilla JS interactions (USE AS BASE)",
+    "frontend/images/ - existing images (caja-fuerte.jpg, dinero.jpg, kepa.jpg, lingotes-equipo.jpg, oro.jpg, plata.jpg, vault-banner.jpg)",
+    "sobre-mi.html - old 'about Kepa' page with content about Kepa Bilbao, AUVESTA collaboration, values (USE FOR CONTENT REFERENCE)",
+    "lead-magnet.html - old lead capture page (USE FOR CONTENT IDEAS)",
+    "gracias.html - old thank you page (reference only)",
+    "vercel.json - deployment config with cleanUrls enabled"
+  ],
+  "directory_structure": "Root level has old standalone HTML pages and markdown marketing docs. frontend/ folder contains the new premium version (index.html, style.css, script.js, images/). The V1.0 rebuild should restructure the frontend/ folder as the primary site root with multiple pages.",
+  "whatsapp_number": "34611918310",
+  "kepa_info": "Kepa Bilbao, based in Bilbao Spain. Official collaborator of AUVESTA Edelmetalle AG (German company, 17+ years, 200k+ investors in 134 countries). Helps people save in physical precious metals (gold, silver, platinum, palladium) from 25 EUR/month. Metals stored in Zurich."
+}
