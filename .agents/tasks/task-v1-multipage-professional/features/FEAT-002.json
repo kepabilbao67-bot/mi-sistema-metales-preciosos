@@ -1,0 +1,28 @@
+{
+  "id": "FEAT-002",
+  "type": "feat",
+  "description": "Mejorar contenido profesional de todas las páginas internas de la V1.0: sobre-kepa, metales-preciosos, como-funciona, partners, blog, contacto y aviso-legal.",
+  "status": "completed",
+  "steps": [
+    "Bloque 1: Reescribir sobre-kepa.html y metales-preciosos.html con contenido profesional y educativo.",
+    "Bloque 2: Reescribir como-funciona.html y partners.html con tono prudente y transparente.",
+    "Bloque 3: Mejorar blog.html, contacto.html y aviso-legal.html."
+  ],
+  "acceptance_criteria": [
+    "Todas las páginas tienen contenido profesional, educativo y transparente.",
+    "Sin promesas de rentabilidad en ninguna página.",
+    "Sin asesoramiento financiero personalizado.",
+    "Sin promesas de ingresos como partner.",
+    "CTAs prudentes orientados a informar, no a presionar.",
+    "Disclaimers explícitos en metales-preciosos, como-funciona, partners, contacto y aviso-legal.",
+    "Tildes y caracteres corregidos en todas las páginas modificadas."
+  ],
+  "verification": [
+    "Revisión manual de cada página confirma cumplimiento.",
+    "No hay frases que prometan resultados, ingresos ni seguridad absoluta.",
+    "Todas las páginas enlazan correctamente entre sí.",
+    "style.css y script.js no fueron modificados."
+  ],
+  "blocked_reason": null,
+  "findings": "FEAT-002 completada en 3 bloques. Bloque 1 (sobre-kepa + metales-preciosos): commit 0408d39. Bloque 2 (como-funciona + partners): commit 41d6518. Bloque 3 (blog + contacto + aviso-legal): commit 3014530. Todas las páginas cumplen requisitos de contenido y cumplimiento normativo."
+}

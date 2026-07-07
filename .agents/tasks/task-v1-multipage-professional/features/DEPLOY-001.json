@@ -1,0 +1,25 @@
+{
+  "id": "DEPLOY-001",
+  "type": "task",
+  "description": "Resolver conexión GitHub/Vercel y publicar la versión V1.0 en producción.",
+  "status": "pending",
+  "steps": [
+    "Verificar que vercel.json apunta correctamente a frontend/.",
+    "Conectar el repositorio GitHub con Vercel (si no está conectado).",
+    "Hacer deploy desde la rama main.",
+    "Verificar que todas las páginas cargan correctamente en el dominio de Vercel.",
+    "Verificar que las imágenes se muestran (requiere ASSET-001 completado).",
+    "Verificar que cleanUrls funciona (URLs sin .html).",
+    "Comprobar que no hay errores 404 en producción."
+  ],
+  "acceptance_criteria": [
+    "La web está accesible en una URL pública de Vercel.",
+    "Todas las 8 páginas cargan correctamente.",
+    "Navegación funciona sin errores.",
+    "Las imágenes se muestran (post ASSET-001).",
+    "cleanUrls activo: /sobre-kepa funciona sin .html."
+  ],
+  "depends_on": ["FEAT-002", "QA-001", "ASSET-001"],
+  "blocked_reason": null,
+  "findings": null
+}

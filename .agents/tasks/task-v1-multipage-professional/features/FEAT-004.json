@@ -1,0 +1,30 @@
+{
+  "id": "FEAT-004",
+  "type": "feat",
+  "description": "Create the Contact page and Legal/Transparency page. These complete the V1.0 site structure.",
+  "status": "completed",
+  "steps": [
+    "Create frontend/contacto.html - Contact page. Include: (1) A page hero explaining Kepa is available for personalized guidance, (2) Contact form with fields: name, email, phone (optional), message/interest area, submit button, (3) Alternative contact methods section: WhatsApp direct (34611918310), email placeholder, (4) What to expect after contact (response within 24h, no-obligation conversation, personalized guidance), (5) Small FAQ about contacting (is it free? yes. Am I committing to anything? no. How long does the call take? 10-15 min). Keep the tone warm, accessible, and trust-building.",
+    "Create frontend/aviso-legal.html - Legal notice and transparency page. Include: (1) Legal disclaimer: this website is informational/educational, not personalized financial advice, (2) About the collaborator: Kepa Bilbao, independent collaborator of AUVESTA Edelmetalle AG, (3) Transparency statement: past performance of metals does not guarantee future results, all investments carry risk, (4) Cookie policy placeholder, (5) Privacy policy basics (data collected via forms used only to contact the user, not shared with third parties), (6) Contact for legal queries. This page is crucial for compliance - language must be very clear and precise.",
+    "Both pages use shared navigation, footer (with aviso-legal.html linked in Legal section), WhatsApp button, reveal animations.",
+    "Ensure the contact form has the same validation pattern as the existing one (frontend/script.js pattern) - prevent submit if name or valid email missing, show success message on submit."
+  ],
+  "acceptance_criteria": [
+    "frontend/contacto.html has a working contact form with validation",
+    "frontend/contacto.html shows WhatsApp as alternative contact method with correct number",
+    "frontend/contacto.html includes what-to-expect section and mini FAQ",
+    "frontend/aviso-legal.html contains legal disclaimer, transparency statement, privacy basics",
+    "frontend/aviso-legal.html explicitly states the site is NOT financial advice",
+    "Both pages use shared navigation and footer",
+    "Contact form validates name and email before allowing submission",
+    "Both pages are responsive"
+  ],
+  "verification": [
+    "Open frontend/contacto.html and verify form, WhatsApp section, and FAQ render correctly",
+    "Open frontend/aviso-legal.html and verify legal text is present and professional",
+    "Test contact form validation rejects empty name or invalid email",
+    "Verify the footer on all pages links correctly to aviso-legal.html"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

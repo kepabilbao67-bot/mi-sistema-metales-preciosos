@@ -1,0 +1,25 @@
+{
+  "id": "QA-001",
+  "type": "task",
+  "description": "Revisión final completa de navegación, responsive, enlaces, CTAs y textos legales antes de deploy.",
+  "status": "pending",
+  "steps": [
+    "Verificar que todos los enlaces internos funcionan correctamente entre las 8 páginas.",
+    "Comprobar responsive en móvil, tablet y escritorio (menú hamburguesa, tarjetas, formulario).",
+    "Verificar que todos los CTAs redirigen correctamente (contacto, WhatsApp, como-funciona, etc.).",
+    "Revisar textos legales en aviso-legal.html y disclaimers en cada página.",
+    "Comprobar que el formulario de contacto valida correctamente.",
+    "Verificar que el botón flotante de WhatsApp aparece en todas las páginas.",
+    "Revisar que no hay errores de consola en ninguna página."
+  ],
+  "acceptance_criteria": [
+    "0 enlaces rotos entre páginas.",
+    "Menú móvil funcional en todas las páginas.",
+    "Formulario de contacto valida nombre y email.",
+    "WhatsApp flotante visible y funcional en todas las páginas.",
+    "Sin errores de consola JavaScript."
+  ],
+  "depends_on": "FEAT-002",
+  "blocked_reason": null,
+  "findings": null
+}

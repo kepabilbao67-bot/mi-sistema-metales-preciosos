@@ -1,0 +1,30 @@
+{
+  "id": "FEAT-003",
+  "type": "feat",
+  "description": "Create the 'Como Funciona' page, the 'Partners/Auvesta' page, and the 'Blog/Guias' page. These complete the informational funnel.",
+  "status": "completed",
+  "steps": [
+    "Create frontend/como-funciona.html - How it works page. Structure as a clear step-by-step process: (1) Initial contact - speak with Kepa to understand your situation, (2) Personalized orientation - Kepa explains options adapted to you, (3) Choose your plan - from 25 EUR/month, choose metals and quantities, (4) Physical metals acquired - real metals purchased and stored securely in your name, (5) Custody in Zurich - your metals stored in insured vaults, (6) Full flexibility - no lock-in, sell/withdraw anytime. Include a FAQ section addressing common questions (minimum amounts, how custody works, is it safe, what about taxes, can I get physical delivery). End with strong CTA to contact Kepa. Use timeline/steps visual design.",
+    "Create frontend/partners.html - Partners/Auvesta page. Explain the collaboration model: (1) Who is AUVESTA Edelmetalle AG (German company, 17+ years, 200k+ investors, 134 countries, one of Europe's largest precious metals traders), (2) Why Kepa works with AUVESTA (trust, track record, transparency, regulated), (3) How the partner model works at a high level (without getting into MLM details - focus on collaboration and accessibility), (4) Benefits for the client (access through a personal advisor, not just an anonymous platform), (5) CTA to learn more / become a partner / contact Kepa. Keep this professional and clear.",
+    "Create frontend/blog.html - Blog/Guides listing page. Create a grid layout showing 3-4 placeholder article cards with titles like: 'Por que el oro protege tu patrimonio', 'Diferencias entre oro fisico y ETFs', 'Como empezar a ahorrar en metales desde 25 EUR', 'Guia para principiantes: plata de inversion'. Each card should have a title, brief excerpt, date, and a 'Leer mas' link. The links can point to '#' for now (future phase will add full articles). Include a section explaining what the blog will cover and a newsletter signup CTA placeholder.",
+    "All three pages must use shared navigation (with correct active state), footer, WhatsApp button, reveal animations. Consistent with the premium black/gold design."
+  ],
+  "acceptance_criteria": [
+    "frontend/como-funciona.html shows a clear step-by-step process with 5-6 steps",
+    "frontend/como-funciona.html includes a FAQ section with at least 5 questions",
+    "frontend/partners.html explains AUVESTA and the collaboration professionally",
+    "frontend/partners.html does not use MLM language, focuses on trust and partnership",
+    "frontend/blog.html displays a grid of 3-4 article placeholder cards",
+    "All three pages use shared nav, footer, WhatsApp button",
+    "All pages are responsive and follow the premium design system",
+    "No financial advice or profitability promises on any page"
+  ],
+  "verification": [
+    "Open frontend/como-funciona.html and verify step-by-step process and FAQ section render correctly",
+    "Open frontend/partners.html and verify AUVESTA information is professional and clear",
+    "Open frontend/blog.html and verify article card grid displays correctly",
+    "Verify navigation active states on each page"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}
