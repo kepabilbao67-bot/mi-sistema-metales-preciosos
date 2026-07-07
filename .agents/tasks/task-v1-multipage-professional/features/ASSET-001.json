@@ -1,0 +1,24 @@
+{
+  "id": "ASSET-001",
+  "type": "task",
+  "description": "Subir imágenes reales a frontend/images/ y confirmar que Vercel las carga correctamente.",
+  "status": "pending",
+  "steps": [
+    "Añadir al repositorio las 7 imágenes necesarias: lingotes-equipo.jpg, oro.jpg, plata.jpg, vault-banner.jpg, dinero.jpg, caja-fuerte.jpg, kepa.jpg.",
+    "Confirmar que todas están dentro de frontend/images/.",
+    "Hacer push a main.",
+    "Verificar en Vercel que las imágenes cargan correctamente en cada página."
+  ],
+  "acceptance_criteria": [
+    "Las 7 imágenes existen en frontend/images/ en el repositorio remoto.",
+    "El deploy de Vercel muestra las imágenes en: hero (lingotes-equipo.jpg), blog (oro.jpg, plata.jpg, vault-banner.jpg, dinero.jpg), partners (caja-fuerte.jpg, lingotes-equipo.jpg), sobre-kepa (kepa.jpg).",
+    "No hay errores 404 en la consola del navegador para ninguna imagen."
+  ],
+  "verification": [
+    "Abrir cada página en Vercel y comprobar que las imágenes se renderizan.",
+    "Abrir DevTools > Network y verificar que no hay 404 en recursos de imagen."
+  ],
+  "blocked_reason": null,
+  "findings": null,
+  "depends_on": "FEAT-001"
+}
