@@ -89,6 +89,13 @@ module.exports = async function handler(req, res) {
         });
 
         if (!response.ok) {
+            const errorText = await response.text();
+            console.error("OpenAI API error:", {
+                status: response.status,
+                statusText: response.statusText,
+                body: errorText.slice(0, 500)
+            });
+
             return res.status(502).json({ reply: "No se pudo obtener respuesta en este momento. Inténtalo de nuevo." });
         }
 
