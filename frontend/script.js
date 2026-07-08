@@ -174,12 +174,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const [oro, plata, platino, paladio] = results;
             const allFailed = results.every(r => r === null);
+            const statusEl = document.getElementById("ticker-status");
 
             if (allFailed) {
-                tickerEl.querySelector(".ticker__inner").innerHTML =
-                    '<span class="ticker__item" style="color: var(--gray-dark);">Precios no disponibles temporalmente</span>';
+                if (statusEl) statusEl.textContent = "Precios no disponibles temporalmente";
                 return;
             }
+
+            if (statusEl) statusEl.textContent = "";
 
             const set = (id, val) => {
                 const el = document.getElementById(id);
