@@ -14,9 +14,9 @@
 
 ## 3 puntos clave para compartir
 
-1. **Metal real a tu nombre** — No es un producto financiero. Son lingotes y monedas reales, custodiados en Suiza y registrados a tu nombre.
+1. **Metal real a tu nombre** — El enfoque es informativo y educativo. Las condiciones concretas de compra, custodia, titularidad, costes y disponibilidad deben revisarse siempre en la documentación vigente del proveedor/plataforma utilizada.
 
-2. **Desde cantidades pequeñas** — Se puede empezar con aportaciones mensuales accesibles. Sin permanencia ni compromisos.
+2. **Desde cantidades pequeñas** — Puede existir la posibilidad de empezar con cantidades pequeñas, según las condiciones vigentes del proveedor/plataforma utilizada. Revisa siempre costes, permanencias, límites y condiciones antes de decidir.
 
 3. **Información, no presión** — Mi trabajo es explicarte cómo funciona, qué riesgos hay y qué opciones tienes. Tú decides si es para ti.
 
