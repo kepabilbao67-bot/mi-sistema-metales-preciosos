@@ -142,4 +142,63 @@ document.addEventListener("DOMContentLoaded", () => {
     if (yearEl) {
         yearEl.textContent = new Date().getFullYear();
     }
+
+    /* ---------------------------------------------------------
+       7. Ticker de precios orientativos (Swissquote, sin API key)
+    --------------------------------------------------------- */
+    const tickerEl = document.getElementById("metals-ticker");
+    if (tickerEl) {
+        const OZ_TO_GRAM = 31.1035;
+        const symbols = { oro: "XAU", plata: "XAG", platino: "XPT", paladio: "XPD" };
+
+        function fmtPrice(val) {
+            return val.toLocaleString("es-ES", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " \u20ac/g";
+        }
+
+        async function fetchPrice(symbol) {
+            try {
+                const r = await fetch("https://forex-data-feed.swissquote.com/public-quotes/bboquotes/instrument/" + symbol + "/EUR");
+                if (!r.ok) return null;
+                const d = await r.json();
+                return d[0].spreadProfilePrices[0].bid / OZ_TO_GRAM;
+            } catch (e) { return null; }
+        }
+
+        async function updateTicker() {
+            const results = await Promise.all([
+                fetchPrice(symbols.oro),
+                fetchPrice(symbols.plata),
+                fetchPrice(symbols.platino),
+                fetchPrice(symbols.paladio)
+            ]);
+
+            const [oro, plata, platino, paladio] = results;
+            const allFailed = results.every(r => r === null);
+
+            if (allFailed) {
+                tickerEl.querySelector(".ticker__inner").innerHTML =
+                    '<span class="ticker__item" style="color: var(--gray-dark);">Precios no disponibles temporalmente</span>';
+                return;
+            }
+
+            const set = (id, val) => {
+                const el = document.getElementById(id);
+                if (el && val !== null) el.textContent = fmtPrice(val);
+            };
+
+            set("ticker-oro", oro);
+            set("ticker-plata", plata);
+            set("ticker-platino", platino);
+            set("ticker-paladio", paladio);
+
+            const timeEl = document.getElementById("ticker-time");
+            if (timeEl) {
+                const now = new Date();
+                timeEl.textContent = now.toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" });
+            }
+        }
+
+        updateTicker();
+        setInterval(updateTicker, 60000);
+    }
 });

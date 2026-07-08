@@ -1487,3 +1487,79 @@ ul {
     max-width: 240px;
     line-height: 1.4;
 }
+
+/* -------------------------------------------------------------
+   16. Ticker de precios orientativos
+------------------------------------------------------------- */
+.ticker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1100;
+    background: var(--black);
+    border-bottom: 1px solid var(--border);
+    padding: 6px 0;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: var(--gray);
+    overflow: hidden;
+}
+
+.ticker__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 16px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.ticker__item strong {
+    color: var(--gold-light);
+    font-weight: 600;
+}
+
+.ticker__item span {
+    color: var(--white);
+    font-weight: 500;
+}
+
+.ticker__time {
+    color: var(--gray-dark);
+    font-size: 0.7rem;
+}
+
+.ticker__disclaimer {
+    color: var(--gray-dark);
+    font-size: 0.65rem;
+    font-style: italic;
+}
+
+/* Ajustar navbar para dejar espacio al ticker */
+.navbar {
+    top: 30px;
+}
+
+.hero {
+    padding-top: calc(var(--nav-h) + 30px);
+}
+
+.page-header {
+    padding-top: calc(160px + 30px);
+}
+
+@media (max-width: 720px) {
+    .ticker__inner {
+        justify-content: flex-start;
+        gap: 16px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .ticker__disclaimer {
+        display: none;
+    }
+}
