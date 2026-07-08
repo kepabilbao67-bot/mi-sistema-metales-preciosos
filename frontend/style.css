@@ -340,6 +340,12 @@ ul {
     flex-wrap: wrap;
     gap: 16px;
     margin-bottom: 52px;
+    padding-top: 8px;
+}
+
+.hero__actions .btn--primary {
+    padding: 17px 34px;
+    font-size: 1rem;
 }
 
 /* Estadísticas de confianza */
@@ -352,11 +358,18 @@ ul {
 .hero__stats li {
     display: flex;
     flex-direction: column;
+    padding-right: 40px;
+    border-right: 1px solid var(--border);
+}
+
+.hero__stats li:last-child {
+    padding-right: 0;
+    border-right: none;
 }
 
 .hero__stats strong {
     font-family: var(--font-display);
-    font-size: 2rem;
+    font-size: 2.4rem;
     font-weight: 700;
     color: var(--gold-light);
     line-height: 1;
@@ -668,6 +681,11 @@ ul {
     gap: 22px;
     max-width: 720px;
     margin: 0 auto;
+    padding: 40px;
+    background: linear-gradient(180deg, var(--black-elevated), var(--surface));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
 }
 
 .field {
@@ -877,6 +895,10 @@ ul {
     .hero__stats {
         gap: 28px;
     }
+    .hero__stats li {
+        padding-right: 0;
+        border-right: none;
+    }
 }
 
 @media (max-width: 420px) {
@@ -1058,6 +1080,7 @@ ul {
     font-size: 1.4rem;
     font-weight: 700;
     margin-bottom: 20px;
+    box-shadow: var(--shadow-gold);
 }
 
 .step__title {
