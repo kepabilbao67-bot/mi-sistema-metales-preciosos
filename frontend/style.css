@@ -860,10 +860,10 @@ ul {
     }
     .nav {
         position: fixed;
-        top: var(--nav-h);
+        top: calc(var(--nav-h) + 36px);
         right: 0;
         width: min(80%, 320px);
-        height: calc(100vh - var(--nav-h));
+        height: calc(100vh - var(--nav-h) - 36px);
         background: rgba(11, 11, 13, 0.98);
         backdrop-filter: blur(14px);
         border-left: 1px solid var(--border);
@@ -1497,13 +1497,16 @@ ul {
     left: 0;
     width: 100%;
     z-index: 1100;
-    background: var(--black);
+    background: linear-gradient(90deg, var(--black) 0%, rgba(201, 162, 75, 0.06) 50%, var(--black) 100%);
     border-bottom: 1px solid var(--border);
-    padding: 6px 0;
+    padding: 8px 0;
     font-family: var(--font-body);
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     color: var(--gray);
     overflow: hidden;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
 }
 
 .ticker__inner {
@@ -1519,13 +1522,14 @@ ul {
 }
 
 .ticker__item strong {
-    color: var(--gold-light);
+    color: var(--gold);
     font-weight: 600;
 }
 
 .ticker__item span {
     color: var(--white);
     font-weight: 500;
+    letter-spacing: 0.2px;
 }
 
 .ticker__time {
@@ -1547,15 +1551,15 @@ ul {
 
 /* Ajustar navbar para dejar espacio al ticker */
 .navbar {
-    top: 30px;
+    top: 36px;
 }
 
 .hero {
-    padding-top: calc(var(--nav-h) + 30px);
+    padding-top: calc(var(--nav-h) + 36px);
 }
 
 .page-header {
-    padding-top: calc(160px + 30px);
+    padding-top: calc(160px + 36px);
 }
 
 @media (max-width: 720px) {
