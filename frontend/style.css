@@ -860,10 +860,10 @@ ul {
     }
     .nav {
         position: fixed;
-        top: calc(var(--nav-h) + 36px);
+        top: calc(var(--nav-h) + 44px);
         right: 0;
         width: min(80%, 320px);
-        height: calc(100vh - var(--nav-h) - 36px);
+        height: calc(100vh - var(--nav-h) - 44px);
         background: rgba(11, 11, 13, 0.98);
         backdrop-filter: blur(14px);
         border-left: 1px solid var(--border);
@@ -1497,14 +1497,14 @@ ul {
     left: 0;
     width: 100%;
     z-index: 1100;
-    background: linear-gradient(90deg, var(--black) 0%, rgba(201, 162, 75, 0.06) 50%, var(--black) 100%);
+    background: linear-gradient(90deg, var(--black) 0%, rgba(201, 162, 75, 0.08) 50%, var(--black) 100%);
     border-bottom: 1px solid var(--border);
-    padding: 8px 0;
+    padding: 10px 0;
     font-family: var(--font-body);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: var(--gray);
     overflow: hidden;
-    min-height: 36px;
+    min-height: 44px;
     display: flex;
     align-items: center;
 }
@@ -1533,13 +1533,13 @@ ul {
 }
 
 .ticker__time {
-    color: var(--gray-dark);
-    font-size: 0.7rem;
+    color: var(--gray);
+    font-size: 0.75rem;
 }
 
 .ticker__disclaimer {
     color: var(--gray-dark);
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     font-style: italic;
 }
 
@@ -1551,18 +1551,22 @@ ul {
 
 /* Ajustar navbar para dejar espacio al ticker */
 .navbar {
-    top: 36px;
+    top: 44px;
 }
 
 .hero {
-    padding-top: calc(var(--nav-h) + 36px);
+    padding-top: calc(var(--nav-h) + 44px);
 }
 
 .page-header {
-    padding-top: calc(160px + 36px);
+    padding-top: calc(160px + 44px);
 }
 
 @media (max-width: 720px) {
+    .ticker {
+        min-height: 40px;
+        font-size: 0.82rem;
+    }
     .ticker__inner {
         justify-content: flex-start;
         gap: 16px;
