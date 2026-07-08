@@ -387,7 +387,7 @@ ul {
     /* Imagen real de lingotes con fallback degradado dorado premium */
     background:
         linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.6) 100%),
-        url("images/lingotes-oro.jpg") center / cover no-repeat,
+        url("images/lingotes-equipo.jpg") center / cover no-repeat,
         radial-gradient(ellipse 130% 80% at 50% 20%, rgba(232, 207, 143, 0.5), transparent 60%),
         linear-gradient(160deg, #1a1610 0%, #2a2318 40%, #0f0d0a 100%);
     background-size: cover;
@@ -1412,7 +1412,7 @@ ul {
 }
 
 /* -------------------------------------------------------------
-   15. Video CTA
+   15. Video CTA (sobre-kepa)
 ------------------------------------------------------------- */
 .video-cta {
     display: flex;
