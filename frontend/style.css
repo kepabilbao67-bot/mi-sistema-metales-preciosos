@@ -1735,3 +1735,76 @@ ul {
         max-height: 400px;
     }
 }
+
+/* -------------------------------------------------------------
+   25. Trust Section — ¿Por qué elegir Kepa?
+------------------------------------------------------------- */
+.trust-section {
+    background: var(--black);
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.trust-card {
+    padding: 36px 26px;
+    background: linear-gradient(180deg, var(--black-elevated), var(--surface));
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius);
+    transition: transform 0.4s var(--ease), border-color 0.4s var(--ease),
+        box-shadow 0.4s var(--ease);
+}
+
+.trust-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--border);
+    box-shadow: var(--shadow-soft);
+}
+
+.trust-card__icon {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: rgba(201, 162, 75, 0.10);
+    color: var(--gold-light);
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+    transition: background 0.3s var(--ease);
+}
+
+.trust-card:hover .trust-card__icon {
+    background: rgba(201, 162, 75, 0.18);
+}
+
+.trust-card__title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    color: var(--white);
+}
+
+.trust-card__text {
+    font-size: 0.93rem;
+    line-height: 1.65;
+    color: var(--gray);
+}
+
+/* Responsive trust grid */
+@media (max-width: 1080px) {
+    .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .trust-grid {
+        grid-template-columns: 1fr;
+    }
+}
