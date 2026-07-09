@@ -1625,34 +1625,56 @@ ul {
     font-family: var(--font-body);
 }
 
-/* Botón flotante toggle */
+/* Botón flotante toggle — reset completo + estilo premium */
 .ai-chat__toggle {
+    /* Reset de estilos nativos del navegador */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 11px 18px;
-    background: var(--gold-gradient);
-    color: var(--black);
-    font-size: 0.82rem;
-    font-weight: 600;
+    padding: 12px 20px;
+
+    /* Fondo: degradado dorado sobre negro oscuro como fallback */
+    background: linear-gradient(135deg, #e8cf8f 0%, #c9a24b 45%, #a67c2e 100%);
+    background-color: #c9a24b; /* fallback sólido por si falla el gradient */
+
+    /* Texto e icono en negro sobre dorado */
+    color: #0b0b0d;
+
+    font-family: var(--font-body);
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    line-height: 1;
+    white-space: nowrap;
+    text-decoration: none;
+
     border: none;
     border-radius: 100px;
     cursor: pointer;
-    box-shadow: var(--shadow-gold);
-    white-space: nowrap;
-    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    box-shadow: 0 8px 28px rgba(201, 162, 75, 0.45);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.ai-chat__toggle:hover {
+.ai-chat__toggle:hover,
+.ai-chat__toggle:focus-visible {
     transform: translateY(-3px);
-    box-shadow: 0 14px 36px rgba(201, 162, 75, 0.5);
+    box-shadow: 0 14px 36px rgba(201, 162, 75, 0.6);
+    outline: none;
 }
 
 .ai-chat__toggle-icon {
     flex-shrink: 0;
+    color: #0b0b0d; /* negro explícito — no hereda currentColor mal */
 }
 
 .ai-chat__toggle-label {
+    color: #0b0b0d;
     line-height: 1;
 }
 
