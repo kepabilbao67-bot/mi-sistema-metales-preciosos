@@ -191,4 +191,69 @@ document.addEventListener("DOMContentLoaded", () => {
         updateTicker();
         setInterval(updateTicker, 60000);
     }
+
+    /* ---------------------------------------------------------
+       8. Widget IA educativa (/api/chat)
+    --------------------------------------------------------- */
+    const chatWidget = document.getElementById("ai-chat");
+    if (chatWidget) {
+        const toggleBtn = document.getElementById("ai-chat-toggle");
+        const closeBtn = document.getElementById("ai-chat-close");
+        const panel = document.getElementById("ai-chat-panel");
+        const form = document.getElementById("ai-chat-form");
+        const input = document.getElementById("ai-chat-input");
+        const messages = document.getElementById("ai-chat-messages");
+        let questionCount = 0;
+        const MAX_QUESTIONS = 5;
+
+        function togglePanel() {
+            const isOpen = panel.hidden;
+            panel.hidden = !isOpen;
+            toggleBtn.style.display = isOpen ? "none" : "inline-flex";
+        }
+
+        toggleBtn.addEventListener("click", togglePanel);
+        closeBtn.addEventListener("click", togglePanel);
+
+        function addMessage(text, sender) {
+            const div = document.createElement("div");
+            div.className = "ai-chat__msg ai-chat__msg--" + sender;
+            div.textContent = text;
+            messages.appendChild(div);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const text = input.value.trim();
+            if (!text) return;
+
+            if (questionCount >= MAX_QUESTIONS) {
+                addMessage("Para continuar con una consulta personal, contacta con Kepa por WhatsApp: +34 611 918 310", "bot");
+                input.disabled = true;
+                return;
+            }
+
+            addMessage(text, "user");
+            input.value = "";
+            questionCount++;
+
+            try {
+                const r = await fetch("/api/chat", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ message: text })
+                });
+                const data = await r.json();
+                addMessage(data.reply || "No he podido responder.", "bot");
+            } catch (err) {
+                addMessage("Ahora mismo no puedo responder. Puedes contactar con Kepa por WhatsApp.", "bot");
+            }
+
+            if (questionCount >= MAX_QUESTIONS) {
+                addMessage("Has alcanzado el límite de preguntas. Para una consulta personal, contacta con Kepa por WhatsApp: +34 611 918 310", "bot");
+                input.disabled = true;
+            }
+        });
+    }
 });
