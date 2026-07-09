@@ -390,8 +390,6 @@ ul {
         url("images/lingotes-equipo.jpg") center / cover no-repeat,
         radial-gradient(ellipse 130% 80% at 50% 20%, rgba(232, 207, 143, 0.5), transparent 60%),
         linear-gradient(160deg, #1a1610 0%, #2a2318 40%, #0f0d0a 100%);
-    background-size: cover;
-    background-position: center;
     box-shadow:
         var(--shadow-soft),
         inset 0 -60px 80px -20px rgba(0, 0, 0, 0.5);
@@ -751,8 +749,8 @@ ul {
 }
 
 @keyframes subtleZoom {
-    0% { background-size: 120%; }
-    100% { background-size: 135%; }
+    0%   { transform: scale(1); }
+    100% { transform: scale(1.06); }
 }
 
 @keyframes scrollDot {
