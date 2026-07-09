@@ -219,51 +219,79 @@ document.addEventListener("DOMContentLoaded", () => {
         const input       = document.getElementById("ai-chat-input");
         const messages    = document.getElementById("ai-chat-messages");
         const quickBtns   = document.getElementById("ai-chat-quick-btns");
+        const sendBtn     = form ? form.querySelector(".ai-chat__send") : null;
         let questionCount = 0;
         const MAX_QUESTIONS = 5;
+        let panelOpen = false;
 
-        function togglePanel() {
-            const isOpen = panel.hidden;
-            panel.hidden = !isOpen;
-            toggleBtn.style.display = isOpen ? "none" : "inline-flex";
+        /* — Abrir / cerrar panel — */
+        function openPanel() {
+            panel.hidden = false;
+            toggleBtn.style.display = "none";
+            panelOpen = true;
+            // Foco en el input al abrir
+            setTimeout(() => { if (input) input.focus(); }, 80);
         }
 
-        toggleBtn.addEventListener("click", togglePanel);
-        closeBtn.addEventListener("click", togglePanel);
+        function closePanel() {
+            panel.hidden = true;
+            toggleBtn.style.display = "inline-flex";
+            panelOpen = false;
+        }
 
+        toggleBtn.addEventListener("click", openPanel);
+        closeBtn.addEventListener("click", closePanel);
+
+        // Cerrar con tecla Escape
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && panelOpen) closePanel();
+        });
+
+        // Cerrar al hacer click fuera del widget
+        document.addEventListener("click", (e) => {
+            if (panelOpen && !chatWidget.contains(e.target)) closePanel();
+        });
+
+        /* — Mensajes — */
         function addMessage(text, sender) {
             const div = document.createElement("div");
             div.className = "ai-chat__msg ai-chat__msg--" + sender;
             div.textContent = text;
             messages.appendChild(div);
             messages.scrollTop = messages.scrollHeight;
+            return div;
         }
 
-        // Botones rápidos — envían la pregunta directamente
+        /* — Botones rápidos — */
         if (quickBtns) {
             quickBtns.querySelectorAll(".ai-chat__quick-btn:not(.ai-chat__quick-btn--cta)").forEach((btn) => {
                 btn.addEventListener("click", () => {
                     const text = btn.textContent.trim();
                     if (!text) return;
-                    // Ocultar botones tras la primera interacción
                     quickBtns.style.display = "none";
                     sendMessage(text);
                 });
             });
         }
 
+        /* — Enviar pregunta — */
         async function sendMessage(text) {
             if (!text) return;
 
             if (questionCount >= MAX_QUESTIONS) {
-                addMessage("Has alcanzado el límite de preguntas del asistente. Para una consulta personalizada, contacta con Kepa directamente por WhatsApp: +34 611 918 310", "bot");
-                input.disabled = true;
+                addMessage("Has alcanzado el límite de preguntas. Para continuar, habla directamente con Kepa por WhatsApp: +34 611 918 310", "bot");
+                if (input) input.disabled = true;
+                if (sendBtn) sendBtn.disabled = true;
                 return;
             }
 
             addMessage(text, "user");
-            input.value = "";
+            if (input) { input.value = ""; input.disabled = true; }
+            if (sendBtn) sendBtn.disabled = true;
             questionCount++;
+
+            // Estado "Consultando..."
+            const loadingMsg = addMessage("Consultando…", "loading");
 
             try {
                 const r = await fetch("/api/chat", {
@@ -271,23 +299,39 @@ document.addEventListener("DOMContentLoaded", () => {
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ message: text })
                 });
-                const data = await r.json();
-                addMessage(data.reply || "No he podido responder en este momento.", "bot");
+
+                // Eliminar mensaje de carga
+                if (loadingMsg && loadingMsg.parentNode) loadingMsg.remove();
+
+                // Manejar 503 — IA no configurada
+                if (r.status === 503) {
+                    addMessage("Ahora mismo el asistente no está configurado. Puedes hablar directamente con Kepa por WhatsApp: +34 611 918 310", "bot");
+                } else {
+                    const data = await r.json();
+                    const reply = data.reply || "No he podido responder en este momento.";
+                    addMessage(reply, "bot");
+                }
             } catch (err) {
-                addMessage("Ahora mismo no puedo responder. Puedes contactar con Kepa directamente por WhatsApp: +34 611 918 310", "bot");
+                if (loadingMsg && loadingMsg.parentNode) loadingMsg.remove();
+                addMessage("No he podido conectar con el asistente. Puedes contactar con Kepa directamente por WhatsApp: +34 611 918 310", "bot");
+            } finally {
+                // Reactivar input y botón siempre
+                if (input && questionCount < MAX_QUESTIONS) input.disabled = false;
+                if (sendBtn && questionCount < MAX_QUESTIONS) sendBtn.disabled = false;
+                if (input) input.focus();
             }
 
             if (questionCount >= MAX_QUESTIONS) {
-                addMessage("Si quieres continuar informándote, Kepa puede atenderte directamente por WhatsApp: +34 611 918 310", "bot");
-                input.disabled = true;
+                addMessage("Si quieres continuar informándote, Kepa puede atenderte directamente: +34 611 918 310", "bot");
+                if (input) input.disabled = true;
+                if (sendBtn) sendBtn.disabled = true;
             }
         }
 
-        form.addEventListener("submit", async (e) => {
+        form.addEventListener("submit", (e) => {
             e.preventDefault();
-            const text = input.value.trim();
+            const text = input ? input.value.trim() : "";
             if (!text) return;
-            // Ocultar botones rápidos tras la primera interacción manual
             if (quickBtns) quickBtns.style.display = "none";
             sendMessage(text);
         });
