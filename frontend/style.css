@@ -1808,3 +1808,114 @@ ul {
         grid-template-columns: 1fr;
     }
 }
+
+/* -------------------------------------------------------------
+   26. Partners Section — Oportunidad de negocio
+------------------------------------------------------------- */
+.partners-section {
+    /* hereda section--alt: background var(--black-soft) + bordes suaves */
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 60px;
+}
+
+/* Lista de puntos informativos */
+.partners-points {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    list-style: none;
+}
+
+.partners-point {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.partners-point__icon {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba(201, 162, 75, 0.10);
+    color: var(--gold-light);
+    border: 1px solid var(--border);
+    transition: background 0.3s var(--ease);
+}
+
+.partners-point:hover .partners-point__icon {
+    background: rgba(201, 162, 75, 0.18);
+}
+
+.partners-point__title {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.partners-point__text {
+    font-size: 0.93rem;
+    color: var(--gray);
+    line-height: 1.65;
+}
+
+/* CTA box derecho */
+.partners-cta-box {
+    padding: 40px 36px;
+    background: linear-gradient(160deg, var(--black-elevated), var(--surface));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-gold);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.partners-cta-box__eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.partners-cta-box__text {
+    font-size: 1.05rem;
+    color: var(--cream);
+    line-height: 1.7;
+}
+
+.partners-cta-box__btn {
+    align-self: flex-start;
+}
+
+.partners-cta-box__disclaimer {
+    font-size: 0.78rem;
+    color: var(--gray-dark);
+    line-height: 1.5;
+    padding-top: 8px;
+    border-top: 1px solid var(--border-soft);
+}
+
+/* Responsive partners grid */
+@media (max-width: 860px) {
+    .partners-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .partners-cta-box__btn {
+        align-self: stretch;
+        text-align: center;
+    }
+}
