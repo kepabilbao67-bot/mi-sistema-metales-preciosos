@@ -56,7 +56,7 @@ module.exports = async function handler(req, res) {
     // Verificar API key configurada
     const apiKey = process.env.OPENAI_API_KEY;
     if (!apiKey) {
-        return res.status(503).json({ reply: "IA no configurada todavía." });
+        return res.status(503).json({ reply: "El asistente IA no está configurado todavía. Contacta con Kepa por WhatsApp: +34 611 918 310" });
     }
 
     // Validar body
