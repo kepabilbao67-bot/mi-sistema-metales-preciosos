@@ -397,12 +397,8 @@ ul {
     height: 100%;
     border-radius: var(--radius);
     overflow: hidden;
-    /* Imagen real de lingotes con fallback degradado dorado premium */
-    background:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.6) 100%),
-        url("images/lingotes-equipo.jpg") center / cover no-repeat,
-        radial-gradient(ellipse 130% 80% at 50% 20%, rgba(232, 207, 143, 0.5), transparent 60%),
-        linear-gradient(160deg, #1a1610 0%, #2a2318 40%, #0f0d0a 100%);
+    /* Fallback degradado dorado si la imagen no carga */
+    background: linear-gradient(160deg, #1a1610 0%, #2a2318 40%, #0f0d0a 100%);
     box-shadow:
         var(--shadow-soft),
         inset 0 -60px 80px -20px rgba(0, 0, 0, 0.5);
@@ -413,7 +409,33 @@ ul {
     animation: subtleZoom 16s ease-in-out infinite alternate;
 }
 
+/* Imagen real como capa base del hero */
+.hero__image-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+    border-radius: var(--radius);
+}
+
+/* Overlay oscuro encima de la foto para legibilidad del badge */
+.hero__image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.55) 100%);
+    z-index: 1;
+    pointer-events: none;
+    border-radius: var(--radius);
+}
+
+/* Badge por encima del overlay */
 .hero__image-badge {
+    position: relative;
+    z-index: 2;
     display: inline-block;
     padding: 8px 16px;
     font-size: 0.75rem;
@@ -636,14 +658,29 @@ ul {
     position: relative;
     aspect-ratio: 1 / 1;
     border-radius: var(--radius);
-    background:
-        radial-gradient(120% 100% at 50% 0%, rgba(232, 207, 143, 0.3), transparent 60%),
-        repeating-linear-gradient(125deg, #17140f 0px, #17140f 16px, #201b12 16px, #201b12 32px),
-        var(--gold-gradient);
     border: 1px solid var(--border);
     box-shadow: var(--shadow-soft);
-    display: grid;
-    place-items: center;
+    overflow: hidden;
+    background: linear-gradient(160deg, #17140f 0%, #0f0d0a 100%);
+}
+
+/* Foto real de Kepa */
+.about__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;   /* prioriza la cara */
+    display: block;
+    border-radius: var(--radius);
+}
+
+/* Badge encima de la foto */
+.about__figure .about__badge {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
 }
 
 .about__badge {
@@ -1581,8 +1618,9 @@ ul {
 ------------------------------------------------------------- */
 .ai-chat {
     position: fixed;
-    bottom: 96px;
-    left: 24px;
+    bottom: 100px;   /* por encima del botón WhatsApp */
+    right: 30px;
+    left: auto;
     z-index: 9999;
     font-family: var(--font-body);
 }
@@ -1600,6 +1638,7 @@ ul {
     border-radius: 100px;
     cursor: pointer;
     box-shadow: var(--shadow-gold);
+    white-space: nowrap;
     transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 
@@ -1611,7 +1650,8 @@ ul {
 .ai-chat__panel {
     position: absolute;
     bottom: 56px;
-    left: 0;
+    right: 0;
+    left: auto;
     width: 340px;
     max-height: 480px;
     background: var(--black-elevated);
@@ -1728,11 +1768,18 @@ ul {
 @media (max-width: 720px) {
     .ai-chat {
         bottom: 88px;
-        left: 16px;
+        right: 16px;
+        left: auto;
+    }
+    .ai-chat__toggle {
+        padding: 10px 14px;
+        font-size: 0.78rem;
     }
     .ai-chat__panel {
         width: calc(100vw - 32px);
         max-height: 400px;
+        right: 0;
+        left: auto;
     }
 }
 
