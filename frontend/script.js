@@ -208,16 +208,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ---------------------------------------------------------
-       8. Widget IA educativa (/api/chat)
+       8. Widget IA — Asistente sobre oro y plata (/api/chat)
     --------------------------------------------------------- */
     const chatWidget = document.getElementById("ai-chat");
     if (chatWidget) {
-        const toggleBtn = document.getElementById("ai-chat-toggle");
-        const closeBtn = document.getElementById("ai-chat-close");
-        const panel = document.getElementById("ai-chat-panel");
-        const form = document.getElementById("ai-chat-form");
-        const input = document.getElementById("ai-chat-input");
-        const messages = document.getElementById("ai-chat-messages");
+        const toggleBtn   = document.getElementById("ai-chat-toggle");
+        const closeBtn    = document.getElementById("ai-chat-close");
+        const panel       = document.getElementById("ai-chat-panel");
+        const form        = document.getElementById("ai-chat-form");
+        const input       = document.getElementById("ai-chat-input");
+        const messages    = document.getElementById("ai-chat-messages");
+        const quickBtns   = document.getElementById("ai-chat-quick-btns");
         let questionCount = 0;
         const MAX_QUESTIONS = 5;
 
@@ -238,13 +239,24 @@ document.addEventListener("DOMContentLoaded", () => {
             messages.scrollTop = messages.scrollHeight;
         }
 
-        form.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const text = input.value.trim();
+        // Botones rápidos — envían la pregunta directamente
+        if (quickBtns) {
+            quickBtns.querySelectorAll(".ai-chat__quick-btn:not(.ai-chat__quick-btn--cta)").forEach((btn) => {
+                btn.addEventListener("click", () => {
+                    const text = btn.textContent.trim();
+                    if (!text) return;
+                    // Ocultar botones tras la primera interacción
+                    quickBtns.style.display = "none";
+                    sendMessage(text);
+                });
+            });
+        }
+
+        async function sendMessage(text) {
             if (!text) return;
 
             if (questionCount >= MAX_QUESTIONS) {
-                addMessage("Para continuar con una consulta personal, contacta con Kepa por WhatsApp: +34 611 918 310", "bot");
+                addMessage("Has alcanzado el límite de preguntas del asistente. Para una consulta personalizada, contacta con Kepa directamente por WhatsApp: +34 611 918 310", "bot");
                 input.disabled = true;
                 return;
             }
@@ -260,15 +272,24 @@ document.addEventListener("DOMContentLoaded", () => {
                     body: JSON.stringify({ message: text })
                 });
                 const data = await r.json();
-                addMessage(data.reply || "No he podido responder.", "bot");
+                addMessage(data.reply || "No he podido responder en este momento.", "bot");
             } catch (err) {
-                addMessage("Ahora mismo no puedo responder. Puedes contactar con Kepa por WhatsApp.", "bot");
+                addMessage("Ahora mismo no puedo responder. Puedes contactar con Kepa directamente por WhatsApp: +34 611 918 310", "bot");
             }
 
             if (questionCount >= MAX_QUESTIONS) {
-                addMessage("Has alcanzado el límite de preguntas. Para una consulta personal, contacta con Kepa por WhatsApp: +34 611 918 310", "bot");
+                addMessage("Si quieres continuar informándote, Kepa puede atenderte directamente por WhatsApp: +34 611 918 310", "bot");
                 input.disabled = true;
             }
+        }
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const text = input.value.trim();
+            if (!text) return;
+            // Ocultar botones rápidos tras la primera interacción manual
+            if (quickBtns) quickBtns.style.display = "none";
+            sendMessage(text);
         });
     }
 });
