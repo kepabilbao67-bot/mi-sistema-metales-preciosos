@@ -1583,9 +1583,9 @@ ul {
 ------------------------------------------------------------- */
 .ai-chat {
     position: fixed;
-    bottom: 28px;
-    left: 28px;
-    z-index: 900;
+    bottom: 96px;
+    left: 24px;
+    z-index: 9999;
     font-family: var(--font-body);
 }
 
@@ -1729,7 +1729,7 @@ ul {
 
 @media (max-width: 720px) {
     .ai-chat {
-        bottom: 20px;
+        bottom: 88px;
         left: 16px;
     }
     .ai-chat__panel {
