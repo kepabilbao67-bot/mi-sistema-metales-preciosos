@@ -386,22 +386,41 @@
         </div>
     </footer>
 
-    <!-- Widget IA educativa -->
+    <!-- Widget IA — Asistente sobre oro y plata -->
     <div class="ai-chat" id="ai-chat">
-        <button class="ai-chat__toggle" id="ai-chat-toggle" aria-label="Abrir asistente educativo">IA educativa</button>
+        <button class="ai-chat__toggle" id="ai-chat-toggle" aria-label="Abrir asistente sobre metales preciosos">
+            <svg class="ai-chat__toggle-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18" aria-hidden="true">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            <span class="ai-chat__toggle-label">Preguntar sobre oro</span>
+        </button>
         <div class="ai-chat__panel" id="ai-chat-panel" hidden>
             <div class="ai-chat__header">
-                <span class="ai-chat__title">Asistente educativo</span>
-                <button class="ai-chat__close" id="ai-chat-close" aria-label="Cerrar">&times;</button>
+                <div class="ai-chat__header-info">
+                    <span class="ai-chat__title">Asistente sobre oro y plata</span>
+                    <span class="ai-chat__subtitle">Información educativa y orientativa sobre metales preciosos físicos.</span>
+                </div>
+                <button class="ai-chat__close" id="ai-chat-close" aria-label="Cerrar asistente">&times;</button>
             </div>
-            <p class="ai-chat__disclaimer">Información general. No es asesoramiento financiero.</p>
             <div class="ai-chat__messages" id="ai-chat-messages">
-                <div class="ai-chat__msg ai-chat__msg--bot">Hola, soy el asistente educativo de Kepa Metales Preciosos. Puedo ayudarte con información general sobre oro, plata y metales preciosos.</div>
+                <div class="ai-chat__msg ai-chat__msg--bot">Hola, soy el asistente de Kepa Metales Preciosos. Puedo ayudarte a entender cómo funciona el ahorro en oro y plata física, la custodia, las opciones disponibles y los pasos para empezar. ¿Sobre qué te gustaría informarte?</div>
+            </div>
+            <div class="ai-chat__quick-btns" id="ai-chat-quick-btns" aria-label="Preguntas frecuentes">
+                <button class="ai-chat__quick-btn" type="button">¿Cómo funciona el ahorro en oro?</button>
+                <button class="ai-chat__quick-btn" type="button">¿Desde cuánto puedo empezar?</button>
+                <button class="ai-chat__quick-btn" type="button">¿Qué diferencia hay entre oro y plata?</button>
+                <button class="ai-chat__quick-btn" type="button">¿Cómo funciona la custodia?</button>
+                <a href="https://wa.me/34611918310?text=Hola%20Kepa%2C%20quiero%20hablar%20contigo%20sobre%20metales%20preciosos." class="ai-chat__quick-btn ai-chat__quick-btn--cta" target="_blank" rel="noopener noreferrer">Hablar con Kepa</a>
             </div>
             <form class="ai-chat__form" id="ai-chat-form">
-                <input class="ai-chat__input" id="ai-chat-input" type="text" placeholder="Pregunta sobre oro, plata o metales preciosos..." maxlength="500" required>
-                <button class="ai-chat__send" type="submit">Enviar</button>
+                <input class="ai-chat__input" id="ai-chat-input" type="text" placeholder="Escribe tu pregunta sobre oro, plata o custodia…" maxlength="500" required>
+                <button class="ai-chat__send" type="submit" aria-label="Enviar pregunta">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" aria-hidden="true">
+                        <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </form>
+            <p class="ai-chat__disclaimer">Información educativa general. No constituye asesoramiento financiero personalizado.</p>
         </div>
     </div>
 
