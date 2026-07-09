@@ -148,6 +148,12 @@ document.addEventListener("DOMContentLoaded", () => {
     --------------------------------------------------------- */
     const tickerEl = document.getElementById("metals-ticker");
     if (tickerEl) {
+        // Inicializar con texto de carga en lugar de "--"
+        ["ticker-oro", "ticker-plata", "ticker-platino", "ticker-paladio"].forEach((id) => {
+            const el = document.getElementById(id);
+            if (el && el.textContent === "--") el.textContent = "cargando...";
+        });
+
         function fmtPrice(val) {
             return val.toLocaleString("es-ES", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " \u20ac/g";
         }
@@ -162,7 +168,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 const allNull = data.oro === null && data.plata === null && data.platino === null && data.paladio === null;
 
                 if (allNull) {
-                    if (statusEl) statusEl.textContent = "Precios no disponibles temporalmente";
+                    if (statusEl) statusEl.textContent = "Precios orientativos no disponibles temporalmente";
+                    ["ticker-oro", "ticker-plata", "ticker-platino", "ticker-paladio"].forEach((id) => {
+                        const el = document.getElementById(id);
+                        if (el) el.textContent = "n/d";
+                    });
                     return;
                 }
 
@@ -170,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const set = (id, val) => {
                     const el = document.getElementById(id);
-                    if (el && val !== null) el.textContent = fmtPrice(val);
+                    if (el) el.textContent = val !== null ? fmtPrice(val) : "n/d";
                 };
 
                 set("ticker-oro", data.oro);
@@ -181,10 +191,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 const timeEl = document.getElementById("ticker-time");
                 if (timeEl && data.updatedAt) {
                     const d = new Date(data.updatedAt);
-                    timeEl.textContent = d.toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" });
+                    timeEl.textContent = "Act. " + d.toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" });
                 }
             } catch (e) {
-                if (statusEl) statusEl.textContent = "Precios no disponibles temporalmente";
+                const statusEl = document.getElementById("ticker-status");
+                if (statusEl) statusEl.textContent = "Precios orientativos no disponibles temporalmente";
+                ["ticker-oro", "ticker-plata", "ticker-platino", "ticker-paladio"].forEach((id) => {
+                    const el = document.getElementById(id);
+                    if (el && el.textContent === "cargando...") el.textContent = "n/d";
+                });
             }
         }
 
