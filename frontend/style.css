@@ -1695,6 +1695,11 @@ ul {
     overflow: hidden;
 }
 
+/* Fix: garantiza que hidden oculte el panel (evita conflicto con display:flex) */
+.ai-chat__panel[hidden] {
+    display: none;
+}
+
 /* Cabecera del panel */
 .ai-chat__header {
     display: flex;
