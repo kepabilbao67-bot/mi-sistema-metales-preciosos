@@ -76,7 +76,9 @@
                     <p class="section__lead">Rellena el formulario y Kepa intentará contactarte lo antes posible. Recibirás una conversación informativa gratuita para resolver dudas generales sobre el proceso. Sin compromiso, sin coste, sin presión comercial.</p>
                 </header>
 
-                <form class="contact-form reveal" id="contact-form" novalidate>
+                <form class="contact-form reveal" id="contact-form" action="https://formspree.io/f/xzdlnagd" method="POST" novalidate>
+                    <!-- Honeypot anti-spam: campo oculto que solo rellenan bots -->
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
                     <div class="field">
                         <label for="name">Nombre</label>
                         <input type="text" id="name" name="name" placeholder="Tu nombre" required>

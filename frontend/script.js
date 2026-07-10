@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const feedback = document.getElementById("form-feedback");
 
     if (form && feedback) {
-        form.addEventListener("submit", (e) => {
+        form.addEventListener("submit", async (e) => {
             e.preventDefault();
 
             const name = form.elements.name ? form.elements.name.value.trim() : "";
@@ -129,9 +129,33 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            feedback.style.color = "";
-            feedback.textContent = "Gracias! Hemos recibido tu solicitud. Te contactaremos muy pronto.";
-            form.reset();
+            // Deshabilitar botón durante envío
+            const submitBtn = form.querySelector('[type="submit"]');
+            if (submitBtn) submitBtn.disabled = true;
+            feedback.style.color = "var(--gray)";
+            feedback.textContent = "Enviando...";
+
+            try {
+                const res = await fetch(form.action, {
+                    method: "POST",
+                    body: new FormData(form),
+                    headers: { "Accept": "application/json" }
+                });
+
+                if (res.ok) {
+                    feedback.style.color = "";
+                    feedback.textContent = "Gracias. Hemos recibido tu solicitud y te contactaremos pronto.";
+                    form.reset();
+                } else {
+                    feedback.style.color = "#e07a7a";
+                    feedback.textContent = "No se pudo enviar. Inténtalo de nuevo o contacta por WhatsApp.";
+                }
+            } catch (err) {
+                feedback.style.color = "#e07a7a";
+                feedback.textContent = "No se pudo enviar. Inténtalo de nuevo o contacta por WhatsApp.";
+            } finally {
+                if (submitBtn) submitBtn.disabled = false;
+            }
         });
     }
 
