@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulario para personas interesadas en colaborar comercialmente con Kepa Metales Preciosos. Sin promesas de ingresos ni garantías.">
+    <link rel="canonical" href="https://mi-sistema-metales-preciosos.vercel.app/partners-contacto">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Kepa Metales Preciosos">
+    <meta property="og:title" content="Colaborar como Partner | Kepa Metales Preciosos">
+    <meta property="og:description" content="Formulario para personas interesadas en colaborar comercialmente. Sin promesas de ingresos.">
+    <meta property="og:url" content="https://mi-sistema-metales-preciosos.vercel.app/partners-contacto">
+    <title>Colaborar como Partner | Kepa Metales Preciosos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar" id="navbar">
+        <div class="navbar__inner container">
+            <a href="index.html" class="logo" aria-label="Kepa Metales Preciosos - Inicio">
+                <span class="logo__mark" aria-hidden="true">K</span>
+                <span class="logo__text">Kepa <span class="logo__accent">Metales Preciosos</span></span>
+            </a>
+            <nav class="nav" aria-label="Navegación principal">
+                <ul class="nav__list" id="nav-list">
+                    <li><a class="nav__link" href="index.html">Inicio</a></li>
+                    <li><a class="nav__link" href="sobre-kepa.html">Sobre Kepa</a></li>
+                    <li><a class="nav__link" href="metales-preciosos.html">Metales Preciosos</a></li>
+                    <li><a class="nav__link" href="como-funciona.html">Cómo Funciona</a></li>
+                    <li><a class="nav__link" href="partners.html">Partners</a></li>
+                    <li><a class="nav__link" href="blog.html">Blog</a></li>
+                    <li><a class="nav__link" href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-list">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-header__title reveal">Colaborar como Partner</h1>
+                <p class="page-header__lead reveal">Si te interesa la colaboración comercial en el sector de metales preciosos, rellena este formulario. Sin compromiso, sin promesas de ingresos.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <header class="section__head reveal">
+                    <p class="section__eyebrow">Formulario de partners</p>
+                    <h2 class="section__title">Cuéntanos sobre ti</h2>
+                    <p class="section__lead">Kepa revisará tu solicitud y te contactará para una conversación informativa. Este formulario no constituye oferta de empleo ni garantía de ingresos de ningún tipo.</p>
+                </header>
+
+                <form class="contact-form reveal" id="partner-form" action="https://formspree.io/f/xzdlnagd" method="POST" novalidate>
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                    <input type="hidden" name="_subject" value="Lead partner metales preciosos">
+                    <input type="hidden" name="tipo_lead" value="partner">
+                    <div class="field">
+                        <label for="name">Nombre completo</label>
+                        <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="field">
+                        <label for="phone">Teléfono / WhatsApp</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+34 600 000 000" required>
+                    </div>
+                    <div class="field">
+                        <label for="perfil">¿Cuál es tu perfil profesional?</label>
+                        <input type="text" id="perfil" name="perfil_profesional" placeholder="Ej: asesor financiero, comercial, networker, coach..." required>
+                    </div>
+                    <div class="field">
+                        <label for="experiencia">¿Tienes experiencia comercial o en ventas?</label>
+                        <select id="experiencia" name="experiencia_comercial" required>
+                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="si">Sí, tengo experiencia</option>
+                            <option value="algo">Algo de experiencia</option>
+                            <option value="no">No, pero me interesa aprender</option>
+                        </select>
+                    </div>
+                    <div class="field field--full">
+                        <label for="motivo">¿Por qué te interesa la colaboración?</label>
+                        <textarea id="motivo" name="motivo_interes" rows="4" placeholder="Cuéntanos qué te motiva, qué esperas y qué disponibilidad tienes..." required></textarea>
+                    </div>
+                    <div class="field field--full">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rgpd" name="rgpd_partner" required>
+                            <span>He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener noreferrer">Política de Privacidad</a>. Consiento el tratamiento de mis datos para recibir información sobre el programa de colaboración.</span>
+                        </label>
+                    </div>
+                    <div class="field field--full">
+                        <button type="submit" class="btn btn--primary btn--block">Enviar solicitud de información</button>
+                        <p class="contact-form__feedback" id="form-feedback" role="status"></p>
+                        <p style="margin-top: 14px; font-size: 0.82rem; color: var(--gray-dark); text-align: center;">Este formulario es para solicitar información sobre la colaboración. No constituye oferta de empleo ni garantía de ingresos de ningún tipo. Los resultados dependen del esfuerzo y circunstancias individuales.</p>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="section section--alt">
+            <div class="container">
+                <div class="prose reveal" style="text-align: center;">
+                    <p class="section__eyebrow">Transparencia</p>
+                    <h2 class="section__title">Aviso importante</h2>
+                    <p style="font-size: 1.05rem; color: var(--gray); max-width: 680px; margin: 0 auto 24px; line-height: 1.7;">
+                        La colaboración comercial no garantiza ningún nivel de ingresos. Los resultados dependen enteramente del esfuerzo, las habilidades y las circunstancias individuales de cada persona. No prometemos rentabilidad, ingresos pasivos ni resultados económicos de ningún tipo.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__grid container">
+            <div class="footer__brand">
+                <a href="index.html" class="logo">
+                    <span class="logo__mark" aria-hidden="true">K</span>
+                    <span class="logo__text">Kepa <span class="logo__accent">Metales Preciosos</span></span>
+                </a>
+                <p class="footer__tagline">Información clara sobre metales preciosos físicos. Sin promesas, sin presión.</p>
+            </div>
+            <div class="footer__links">
+                <div class="footer__col">
+                    <h4 class="footer__heading">Descubre</h4>
+                    <ul>
+                        <li><a href="metales-preciosos.html">Metales Preciosos</a></li>
+                        <li><a href="como-funciona.html">Cómo Funciona</a></li>
+                        <li><a href="blog.html">Blog / Guías</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Empresa</h4>
+                    <ul>
+                        <li><a href="sobre-kepa.html">Sobre Kepa</a></li>
+                        <li><a href="partners.html">Partners / Auvesta</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h4 class="footer__heading">Legal</h4>
+                    <ul>
+                        <li><a href="aviso-legal.html">Aviso Legal</a></li>
+                        <li><a href="privacidad.html">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copy">&copy; <span id="year"></span> Kepa Metales Preciosos. Todos los derechos reservados.</p>
+                <a href="https://wa.me/34611918310" class="footer__whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp: +34 611 918 310</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
