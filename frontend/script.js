@@ -110,22 +110,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* ---------------------------------------------------------
-       6. Validacion basica del formulario de contacto
+       6. Envio seguro de formularios (contacto y partners)
     --------------------------------------------------------- */
-    const form = document.getElementById("contact-form");
-    const feedback = document.getElementById("form-feedback");
+    function initFormHandler(formId, feedbackId) {
+        const form = document.getElementById(formId);
+        const feedback = document.getElementById(feedbackId);
+        if (!form || !feedback) return;
 
-    if (form && feedback) {
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
 
-            const name = form.elements.name ? form.elements.name.value.trim() : "";
-            const email = form.elements.email ? form.elements.email.value.trim() : "";
-            const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-            if (!name || !emailOk) {
+            // Validar campos required via checkValidity
+            if (!form.checkValidity()) {
                 feedback.style.color = "#e07a7a";
-                feedback.textContent = "Por favor, completa tu nombre y un email valido.";
+                feedback.textContent = "Por favor, completa todos los campos obligatorios.";
+                return;
+            }
+
+            // Validar email
+            const emailField = form.elements.email;
+            const email = emailField ? emailField.value.trim() : "";
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                feedback.style.color = "#e07a7a";
+                feedback.textContent = "Por favor, introduce un email valido.";
+                return;
+            }
+
+            // Validar checkbox RGPD
+            const rgpd = form.querySelector('[name="rgpd"], [name="rgpd_partner"]');
+            if (rgpd && !rgpd.checked) {
+                feedback.style.color = "#e07a7a";
+                feedback.textContent = "Debes aceptar la politica de privacidad para continuar.";
                 return;
             }
 
@@ -158,6 +173,9 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+    initFormHandler("contact-form", "form-feedback");
+    initFormHandler("partner-form", "form-feedback");
 
     /* ---------------------------------------------------------
        7. Ano dinamico en el pie de pagina
