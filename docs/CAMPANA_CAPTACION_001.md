@@ -105,11 +105,11 @@ Escríbeme o visita: https://mi-sistema-metales-preciosos.vercel.app/contacto
 ```
 [Kepa a cámara, fondo neutro o exterior]
 
-"¿Sabías que puedes ahorrar en oro físico desde 25 euros al mes?"
+"¿Sabías que puedes ahorrar en oro físico con aportaciones periódicas adaptadas a tu situación?"
 
 "Yo no soy asesor financiero, pero llevo tiempo formándome en este tema y acompaño a personas que quieren entender cómo funciona."
 
-"Oro real, a tu nombre, guardado en cámaras de alta seguridad en Suiza."
+"Oro real, con distintas opciones de titularidad y custodia según la modalidad que elijas."
 
 "Si quieres saber más, escríbeme. Te explico en 15 minutos sin compromiso."
 
@@ -156,7 +156,7 @@ Sin prisa. Un saludo.
 ### "Quiero información"
 
 ```
-¡Perfecto! Te cuento en 2 minutos: básicamente puedes ahorrar en oro o plata física desde 25€/mes. El metal es tuyo, a tu nombre, guardado en cámaras de alta seguridad en Suiza. Si quieres, te paso un enlace con toda la info detallada o hacemos una llamada de 15 min para resolver dudas. ¿Qué te viene mejor?
+¡Perfecto! Te cuento en 2 minutos: existen distintas modalidades de ahorro en oro o plata física, con aportaciones y condiciones que dependen del proveedor. Te explico las opciones para que puedas comprobar cuál encaja contigo. La titularidad, custodia y ubicación del metal dependen de la modalidad elegida; lo revisamos juntos con la documentación. Si quieres, te paso un enlace con toda la info detallada o hacemos una llamada de 15 min para resolver dudas. ¿Qué te viene mejor?
 
 Más info: https://mi-sistema-metales-preciosos.vercel.app/como-funciona
 ```
